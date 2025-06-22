@@ -1,0 +1,15 @@
+<div class="container">
+  <h2><%= @event.title %></h2>
+  <p><%= @event.date.strftime('%-d %B') %></p>
+  <p><%= @event.start_time.strftime('%H:%M') %></p>
+  <p><%= @event.end_time.strftime('%H:%M') %></p>
+  <p><%= @event.description %></p>
+
+ <%= link_to event_path(@event),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "card-button",
+                  id: "delete-button" do %>
+                    <i class="fa-solid fa-xmark"></i>
+                <% end %>
+  <%= link_to "Bewerk evenement", edit_event_path(@event), class: "btn btn-primary" %>
+</div>

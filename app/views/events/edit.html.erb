@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for [@evenement] do |f| %>
+      <%= f.input :title, label: "TITEL" %>
+      <%= f.input :date, label: "DATUM" %>
+      <%= f.input :start_time, label: "BEGINT OM" %>
+      <%= f.input :end_time, label: "EINDIGT OM" %>
+      <%= f.input :description, label: "BESCHRIJVING", input_html: { rows: 10 } %>
+      <%= f.submit "VERSTUUR" %>
+    <% end %>
+  </div>
+</div>
