@@ -1,5 +1,6 @@
 <h1>De Vliegtuin</h1>
 <%= link_to "Nieuw evenement", new_event_path %>
+<%= link_to "Nieuwe Profiel Pagina", new_profile_page_path %>
 
 <% @events.each do |event| %>
   <%= link_to event_path(event) do %>
@@ -8,5 +9,13 @@
     <p><%= event.start_time.strftime('%H:%M') %></p>
     <p><%= event.end_time.strftime('%H:%M') %></p>
     <p><%= event.description %></p>
+  <% end %>
+<% end %>
+
+<% @profile_pages.each do |profile| %>
+  <%= link_to profile_page_path(profile) do %>
+    <h2><%= profile.naam %></h2>
+    <p><%= profile.email %></p>
+    <p><%= profile.info %></p>
   <% end %>
 <% end %>
