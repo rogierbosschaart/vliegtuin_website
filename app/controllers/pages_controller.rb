@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @events = Event.all
+    @profile_pages = ProfilePage.all
   end
 end
