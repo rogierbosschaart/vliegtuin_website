@@ -10,3 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+  font-family: 'Rubik', sans-serif;
+}

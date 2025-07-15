@@ -1,21 +1,43 @@
-<h1>De Vliegtuin</h1>
-<%= link_to "Nieuw evenement", new_event_path %>
-<%= link_to "Nieuwe Profiel Pagina", new_profile_page_path %>
+<div class="page-container">
+  <div class="banner">
+    <%= image_tag "Vliegtuin.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+  </div>
 
-<% @events.each do |event| %>
-  <%= link_to event_path(event) do %>
-    <h2><%= event.title %></h2>
-    <p><%= event.date.strftime('%-d %B') %></p>
-    <p><%= event.start_time.strftime('%H:%M') %></p>
-    <p><%= event.end_time.strftime('%H:%M') %></p>
-    <p><%= event.description %></p>
-  <% end %>
-<% end %>
+  <div class="about-container">
+    <h1 class="centered my-3">De Vliegtuin</h1>
+    <p class="centered">
+      Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.
+    </p>
+    <%= link_to "Meer over ons...", class:"page-link" %>
+  </div>
 
-<% @profile_pages.each do |profile| %>
-  <%= link_to profile_page_path(profile) do %>
-    <h2><%= profile.naam %></h2>
-    <p><%= profile.email %></p>
-    <p><%= profile.info %></p>
-  <% end %>
-<% end %>
+  <div class="events-container">
+    <h2>Evenementen</h2>
+
+    <% @events.each do |event| %>
+      <div class="event-container">
+        <%= link_to event_path(event) do %>
+          <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
+          <div class="date-time">
+            <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="profiles-container">
+    <h2>Onze Makers</h2>
+
+    <% @profile_pages.each do |profile| %>
+      <%= link_to profile_page_path(profile) do %>
+        <h2><%= profile.naam %></h2>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <%= link_to "Nieuw evenement", new_event_path %>
+  <%= link_to "Nieuwe Profiel Pagina", new_profile_page_path %>
+</div>
