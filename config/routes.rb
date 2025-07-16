@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+  get 'over_ons', to: 'pages#about'
+
   resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :profile_pages, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :profile_pages, only: [:show, :new, :create, :update, :destroy] do
+    member do
+      get :edit_banner
+      get :edit_contact_info
+      get :edit_bio
+    end
+  end
 end

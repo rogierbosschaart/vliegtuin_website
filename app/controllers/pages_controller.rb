@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  before_action :authenticate_user!
 
   def home
     @events = Event.all
     @profile_pages = ProfilePage.all
+  end
+
+  def about
   end
 end

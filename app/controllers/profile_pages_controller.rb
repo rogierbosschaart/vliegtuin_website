@@ -1,6 +1,7 @@
 class ProfilePagesController < ApplicationController
+  before_action :find_profile_page, only: [:show, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_images, :update, :destroy]
+
   def show
-    @profile_page = ProfilePage.find(params[:id])
   end
 
   def new
@@ -17,12 +18,19 @@ class ProfilePagesController < ApplicationController
     end
   end
 
-  def edit
-    @profile_page = ProfilePage.find(params[:id])
+  def edit_banner
+  end
+
+  def edit_contact_info
+  end
+
+  def edit_bio
+  end
+
+  def edit_profile_images
   end
 
   def update
-    @profile_page = ProfilePage.find(params[:id])
     if @profile_page.update(profile_page_params)
       redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully updated.'
     else
@@ -38,6 +46,10 @@ class ProfilePagesController < ApplicationController
 
   private
   def profile_page_params
-    params.require(:profile_page).permit(:naam, :beroep, :email, :info)
+    params.require(:profile_page).permit(:naam, :banner_image, :beroep, :email, :info)
+  end
+
+  def find_profile_page
+    @profile_page = ProfilePage.find(params[:id])
   end
 end
