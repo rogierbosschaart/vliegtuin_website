@@ -1,0 +1,44 @@
+h1, h2, h3, h4, h5, h6, p, span, a {
+  font-family: 'Rubik', sans-serif;
+  color: #050707
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-link {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}

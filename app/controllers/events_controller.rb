@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
 
+  def index
+    @events = Event.all.order(date: :asc, start_time: :asc)
+    @upcoming_events = @events.select { |event| event.date >= Date.today }
+    @past_events = @events.select { |event| event.date < Date.today }
+  end
+
   def show
     @event = Event.find(params[:id])
   end

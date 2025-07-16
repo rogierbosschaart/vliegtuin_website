@@ -1,11 +1,16 @@
-<h2><%= @profile_page.naam %></h2>
-<p><%= @profile_page.email %></p>
-<p><%= @profile_page.info %></p>
+<div class="profile-banner">
+  <%# image_tag @profile_page.banner_image_url, alt: "#{@profile_page.naam}-image", class: "profile-banner-image" %>
+</div>
+<div class="profile-content">
+  <div class="info">
+    <h2><%= @profile_page.naam %></h2>
+    <h4><%= @profile_page.beroep %></h4>
+    <p><%= @profile_page.info %></p>
+  </div>
+  <div class="contact">
+    <h3>Contact</h3>
+    <p><%= @profile_page.email %></p>
+  </div>
+</div>
 
-<%= link_to profile_page_path(@profile_page),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "card-button",
-                  id: "delete-button" do %>
-                    <i class="fa-solid fa-xmark"></i>
-                <% end %>
-  <%= link_to "Bewerk evenement", edit_profile_page_path(@profile_page), class: "btn btn-primary" %>
+<%= link_to "Bewerk profiel", edit_profile_page_path(@profile_page), class: "btn btn-primary" %>

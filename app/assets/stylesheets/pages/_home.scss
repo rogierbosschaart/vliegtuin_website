@@ -1,9 +1,5 @@
 // Specific CSS for your home-page
-.page-container {
-  max-width: 1320px;
-  padding: 0 60px;
-  margin: 0 auto;
-}
+
 
 .about-container {
   padding: 0 140px;
@@ -11,10 +7,30 @@
   text-align: center;
 }
 
-.event-container {
-  height: 200px;
+.events-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.event-card {
+  height: 400px;
   width: 100%;
-  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px 40px;
+  border-radius: 10px;
+  align-content: end;
+}
+
+.profiles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.profile-card {
+  height: 300px;
+  width: 100%;
   border: 1px solid #ccc;
   padding: 20px 40px;
   border-radius: 10px;

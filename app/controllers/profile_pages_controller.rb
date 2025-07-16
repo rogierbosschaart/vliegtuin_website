@@ -38,6 +38,6 @@ class ProfilePagesController < ApplicationController
 
   private
   def profile_page_params
-    params.require(:profile_page).permit(:naam, :email, :info)
+    params.require(:profile_page).permit(:naam, :beroep, :email, :info)
   end
 end

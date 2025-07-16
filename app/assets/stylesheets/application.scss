@@ -13,8 +13,17 @@
 
 body {
   background-color: white;
+  position: relative;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a {
-  font-family: 'Rubik', sans-serif;
+.border-container {
+  border-top: 3px solid #4c945a;
+  padding-bottom: 140px;
+}
+
+.page-container {
+  max-width: 1320px;
+  padding: 0 60px;
+  margin: 0 auto;
 }

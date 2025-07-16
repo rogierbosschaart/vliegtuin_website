@@ -1,0 +1,11 @@
+.profile-banner {
+  background-color: pink;;
+  height: 400px;
+  margin: 40px 0;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
