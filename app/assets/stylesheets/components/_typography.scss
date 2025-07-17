@@ -11,6 +11,7 @@ h1 {
 h2 {
   font-size: 36px;
   font-weight: 800;
+  z-index: 100;
 }
 
 h3 {
@@ -37,8 +38,64 @@ a {
   text-decoration: none;
 }
 
+
 .page-link {
   font-size: 24px;
   font-style: italic;
   font-weight: 600;
+}
+
+.makers-header {
+  font-family: "Playfair Display";
+  font-size: 160px;
+  font-weight: 300;
+  font-style: italic;
+  margin-left: -100px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 1090px) {
+  .makers-header {
+    font-size: 140px;
+    margin-left: -80px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .makers-header {
+    font-size: 120px;
+    margin-left: -40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .makers-header {
+    font-size: 100px;
+    margin-left: -20px;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  .makers-header {
+    font-size: 80px;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 484px) {
+  .makers-header {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .makers-header {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .makers-header {
+    font-size: 40px;
+  }
 }

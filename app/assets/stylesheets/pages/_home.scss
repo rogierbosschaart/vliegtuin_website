@@ -1,13 +1,66 @@
 // Specific CSS for your home-page
+section {
+  padding: 20px 140px;
+}
 
+@media only screen and (max-width: 1090px) {
+  section {
+    padding: 20px 100px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  section {
+    padding: 20px 60px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  section {
+    padding: 20px 40px;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  section {
+    padding: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  section {
+    padding: 20px 10px;
+  }
+}
 
 .about-container {
-  padding: 0 140px;
+  max-width: 1320px;
+  padding: 0 100px;
   margin: 40px auto;
   text-align: center;
+
+  p, a {
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.dark-background {
+  background-color: #011f0e;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.events-section {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 90%);
+  margin-top: -8%;
+  margin-bottom: -20%;
+  background-color: #86c68d;
+  padding-top: 160px;
+  padding-bottom: 260px;
 }
 
 .events-container {
+  max-width: 1320px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -22,17 +75,57 @@
   align-content: end;
 }
 
+.profiles-section {
+  position: relative;
+  z-index: 1;
+
+  padding-top: 40px;
+  padding-bottom: 180px;
+
+  h2, a, span {
+    color: white;
+  }
+}
+
 .profiles-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+  columns: 300px;
+  column-gap: 20px;
 }
 
 .profile-card {
-  height: 300px;
+  max-width: 100%;
+  break-inside: avoid;
+
+  background-color: #011409;
+  margin-bottom: 20px;
+
+  border: 0.5px solid #4c945a;
+  border-radius: 2px;
+  box-shadow: 6px 6px 8px rgba(0, 10, 2, 0.8),
+              -2px -2px 4px rgba(181, 253, 192, 0.1);
+
+  h3 {
+    color: white;
+    padding: 10px 0 5px 20px;
+    margin: 0;
+  }
+
+  p {
+    color: white;
+    padding: 0 0 10px 20px;
+    margin: 0;
+  }
+}
+
+.profile-image {
   width: 100%;
-  border: 1px solid #ccc;
-  padding: 20px 40px;
-  border-radius: 10px;
-  align-content: end;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.header-div {
+  position: relative;
+  z-index: 100;
 }

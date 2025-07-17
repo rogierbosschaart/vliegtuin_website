@@ -1,57 +1,68 @@
-<div class="banner">
-  <%= image_tag "Vliegtuin.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
-</div>
+<section class="banner-section">
+  <div class="banner">
+    <%= image_tag "Vliegtuin.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+  </div>
+</section>
 
-<div class="about-container">
-  <h1 class="centered my-3">De Vliegtuin</h1>
-  <p class="centered">
-    Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.
-  </p>
-  <%= link_to "Meer over ons...", "#", class:"page-link" %>
-</div>
+<section class="about-section">
+  <div class="about-container">
+    <h1 class="centered my-3">De Vliegtuin</h1>
+    <p class="centered">
+      Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.
+    </p>
+    <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
+  </div>
+</section>
 
 <%# EVENEMENTEN %>
-<div class="d-flex justify-content-between align-items-center mt-5 mb-2">
-  <h2>Evenementen</h2>
-  <% if user_signed_in? %>
-    <%= link_to new_event_path do%>
-      <i class="fa-solid fa-plus"></i>
-      <span>Evenement</span>
-    <% end %>
-  <% end %>
-</div>
-<div class="events-container">
-  <% @events.each do |event| %>
-    <%= link_to event_path(event) do %>
-      <div class="event-card">
-        <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-        <div class="date-time">
-          <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-<%= link_to "Alle evenementen...", events_path, class:"page-link" %>
+<div class="dark-background">
+  <section class="events-section">
+    <div class="d-flex justify-content-between align-items-center mt-5 mb-2">
+      <h2>Evenementen</h2>
+      <% if user_signed_in? %>
+        <%= link_to new_event_path do%>
+          <i class="fa-solid fa-plus"></i>
+          <span>Evenement</span>
+        <% end %>
+      <% end %>
+    </div>
 
-<%# PROFIEL PAGINAS %>
-<div class="d-flex justify-content-between align-items-center mt-5 mb-2">
-  <h2>Onze Makers</h2>
-  <% if user_signed_in? %>
-    <%= link_to new_profile_page_path do%>
-      <i class="fa-solid fa-plus"></i>
-      <span>Pagina</span>
-    <% end %>
-  <% end %>
-</div>
+    <div class="events-container">
+      <% @events.each do |event| %>
+        <%= link_to event_path(event) do %>
+          <div class="event-card">
+            <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
+            <div class="date-time">
+              <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= link_to "Alle evenementen...", events_path, class:"page-link" %>
+  </section>
 
-<div class="profiles-container">
-  <% @profile_pages.each do |profile| %>
-    <%= link_to profile_page_path(profile) do %>
-      <div class="profile-card">
-        <h3><%= profile.naam %></h3>
-        <p><%= profile.beroep %></p>
-      </div>
+  <%# PROFIEL PAGINAS %>
+  <section class="profiles-section">
+    <h2 class="makers-header">Onze Makers</h2>
+    <% if user_signed_in? %>
+      <%= link_to new_profile_page_path do%>
+        <i class="fa-solid fa-plus"></i>
+        <span>Pagina</span>
+      <% end %>
     <% end %>
-  <% end %>
+
+
+    <div class="profiles-container">
+      <% @profile_pages.each do |profile| %>
+        <%= link_to profile_page_path(profile) do %>
+          <div class="profile-card">
+            <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+            <h3><%= profile.naam %></h3>
+            <p><%= profile.beroep %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
 </div>

@@ -14,7 +14,7 @@ class ProfilePagesController < ApplicationController
     if @profile_page.save
       redirect_to root_path, notice: 'Profile page was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to root_path, notice: 'Unable to create profile page. Please try again.'
     end
   end
 
@@ -46,7 +46,7 @@ class ProfilePagesController < ApplicationController
 
   private
   def profile_page_params
-    params.require(:profile_page).permit(:naam, :banner_image, :beroep, :email, :info)
+    params.require(:profile_page).permit(:naam, :profile_image, :banner_image, :beroep, :email, :info)
   end
 
   def find_profile_page

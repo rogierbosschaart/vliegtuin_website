@@ -1,5 +1,12 @@
 <div class="profile-banner">
-  <%= cl_image_tag @profile_page.banner_image.key, class: "banner_image" %>
+  <% if @profile_page.banner_image.presence %>
+    <%= cl_image_tag @profile_page.banner_image.key, class: "banner_image" %>
+  <% else %>
+    <div class="banner-placeholder">
+      <h2>Banner Image</h2>
+      <p>Upload a banner image to personalize your profile page.</p>
+    </div>
+  <% end %>
   <% if user_signed_in? && current_user == @profile_page.user %>
     <%= link_to edit_banner_profile_page_path(@profile_page), data: { turbo_frame: "modal" }, class: "banner-edit" do %>
       <i class="fa-solid fa-pen"></i>
@@ -36,4 +43,4 @@
   <%# IMAGE CAROUSEL HERE %>
 </div>
 
-<%= turbo_frame_tag "modal" %>
+

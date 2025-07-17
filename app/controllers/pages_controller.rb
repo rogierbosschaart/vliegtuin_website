@@ -1,9 +1,8 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
 
   def home
     @events = Event.all
-    @profile_pages = ProfilePage.all
+    @profile_pages = ProfilePage.all.order(updated_at: :desc)
   end
 
   def about
