@@ -12,4 +12,11 @@ Rails.application.routes.draw do
       get :edit_bio
     end
   end
+  resources :abouts, only: [:edit_slogan, :edit_info, :update] do
+    member do
+      get :edit_slogan
+      get :edit_info
+      get :edit_about_image
+    end
+  end
 end

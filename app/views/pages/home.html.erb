@@ -1,24 +1,50 @@
 <section class="banner-section">
   <div class="banner">
     <%= image_tag "Vliegtuin.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+    <h1><%= @about.first.slogan %></h1>
   </div>
 </section>
 
-<section class="about-section">
-  <div class="about-container">
-    <h1 class="centered my-3">De Vliegtuin</h1>
-    <p class="centered">
-      Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.
-    </p>
-    <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
-  </div>
-</section>
+<div class="medium-light-background">
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-info">
+        <h2 class="about-header">Over Ons</h2>
+        <p>
+          <%= @about.first.info %>
+        </p>
+        <% if user_signed_in? %>
+          <%= link_to edit_info_about_path(@about.first), data: { turbo_frame: "modal" }, class: "about-info-edit" do %>
+            <i class="fa-solid fa-pen"></i>
+          <% end %>
+        <% end %>
+        <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
+      </div>
+      <div class="about-image">
+        <div class="about-image-container">
+          <% if @about.first.about_image.presence %>
+            <%= cl_image_tag @about.first.about_image.key, class: "about-image" %>
+          <% else %>
+            <div class="about-image-placeholder">
+              <h2>Banner Image</h2>
+              <p>Upload a banner image to personalize your profile page.</p>
+            </div>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to  edit_about_image_about_path(@about.first), data: { turbo_frame: "modal" }, class: "about-image-edit" do %>
+              <i class="fa-solid fa-pen"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<%# EVENEMENTEN %>
-<div class="dark-background">
+  <%# EVENEMENTEN %>
+
   <section class="events-section">
     <div class="d-flex justify-content-between align-items-center mt-5 mb-2">
-      <h2>Evenementen</h2>
+      <h2 class="events-header">Evenementen</h2>
       <% if user_signed_in? %>
         <%= link_to new_event_path do%>
           <i class="fa-solid fa-plus"></i>

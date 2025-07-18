@@ -50,35 +50,51 @@ a {
   font-size: 160px;
   font-weight: 300;
   font-style: italic;
-  margin-left: -100px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+
+  position: absolute;
+  // top: 120px;
+  left: 20px;
+}
+
+.events-header {
+  font-family: "Cairo", sans-serif;
+  font-size: 100px;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(233, 233, 233, 0.3);
+  transform: rotateZ(8deg);
+
+  position: absolute;
+  top: 120px;
+  right: 30px;
 }
 
 @media only screen and (max-width: 1090px) {
   .makers-header {
     font-size: 140px;
-    margin-left: -80px;
+    // margin-left: -80px;
   }
 }
 
 @media only screen and (max-width: 950px) {
   .makers-header {
     font-size: 120px;
-    margin-left: -40px;
+    // margin-left: -40px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .makers-header {
     font-size: 100px;
-    margin-left: -20px;
+    // margin-left: -20px;
   }
 }
 
 @media only screen and (max-width: 615px) {
   .makers-header {
     font-size: 80px;
-    margin-left: 0;
+    // margin-left: 0;
   }
 }
 

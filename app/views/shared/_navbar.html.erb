@@ -1,35 +1,34 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Vliegtuin.png" %>
-      <span>De Vliegtuin</span>
+    <%= link_to root_path, class: "home-avatar" do %>
+      <%= image_tag "Vliegtuin.png", class: "home-avatar-image"%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to "Home", root_path, class: "my-nav" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Over Ons", over_ons_path, class: "nav-link" %>
+          <%= link_to "Over Ons", over_ons_path, class: "my-nav" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Evenementen", events_path, class: "nav-link" %>
+          <%= link_to "Evenementen", events_path, class: "my-nav" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Contact", "#", class: "nav-link" %>
+          <%= link_to "Contact", "#", class: "my-nav" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+            <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "my-nav" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "my-nav" %>
           </li>
         <% end %>
       </ul>
