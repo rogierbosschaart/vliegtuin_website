@@ -1,154 +1,215 @@
 // Specific CSS for your home-page
 section {
-  padding: 20px 140px;
-}
-
-@media only screen and (max-width: 1090px) {
-  section {
-    padding: 20px 100px;
-  }
-}
-
-@media only screen and (max-width: 950px) {
-  section {
-    padding: 20px 60px;
-  }
+  padding: 20px 15%;
 }
 
 @media only screen and (max-width: 800px) {
   section {
-    padding: 20px 40px;
+    padding: 20px 10%;
   }
 }
 
-@media only screen and (max-width: 615px) {
+@media only screen and (max-width: 500px) {
   section {
-    padding: 20px 20px;
+    padding: 20px 5%;
   }
 }
 
-@media only screen and (max-width: 375px) {
-  section {
-    padding: 20px 10px;
-  }
+.banner-section {
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 105vh;
+  width: 100vw;
+  background-image: radial-gradient(rgb(240, 255, 142), rgb(255,255,255));
+  align-content: center;
+  justify-items: center;
 }
 
-// .about-section {
-
-// }
+.medium-light-background {
+  margin-top: 92vh;
+  background-image: linear-gradient(10deg, #4c9553, #a0d6a6);
+}
 
 .about-container {
   max-width: 1320px;
-  padding: 100px 0;
+  padding: 100px 0 140px 0;
+  margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
 
-  justify-items: center;
-  align-items: center;
-
-  p, a {
-    position: relative;
-    z-index: 100;
-  }
+  position: relative;
 }
 
 .about-image-container {
-  width: 100%;
-  aspect-ratio: 1 / 1;;
+  height: 80vh;
+  aspect-ratio: 5 / 4;
+  position: relative;
 }
 
 .about-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.75;
+  border-radius: 2px;
 }
 
-.medium-light-background {
-  background-color: #86c68d;
-  clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
+.about-image-edit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.about-image-edit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#edit-pen {
+  color: white;
+  font-size: 20px;
 }
 
 .events-section {
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 90%);
-  margin-top: -8%;
-  margin-bottom: -20%;
-  background-color: #011f0e;
-  // padding-top: 160px;
-  padding-bottom: 400px;
+  margin: -8% auto -20% auto;
+
+  background-image: linear-gradient(350deg, rgba(1,31,14, 1.0), rgba(1,31,14, 0.85));
+
+  padding-bottom: 260px;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .events-container {
   max-width: 1320px;
   padding-top: 160px;
+  width: 100%;
 }
 
 .event-card {
-  height: 220px;
+  height: 180px;
   width: 100%;
 
-  margin-bottom: 20px;
-  padding: 20px 40px;
+  margin-top: 20px;
 
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  align-content: end;
+  border-radius: 2px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.event-card:hover {
+  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.6),
+              -1px -1px 8px rgba(192, 195, 175, 0.1),
+              0 0 2px rgba(255, 255, 1, 0.2);
+  transform: scale(1.01);
+}
+
+.event-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.event-details {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  padding: 1.5%;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  h3, p {
+    color: white;
+  }
+
+  p {
+    margin: 0;
+  }
 }
 
 .profiles-section {
   position: relative;
   z-index: 1;
+  padding: 20px 5%;
 
-  padding-top: 40px;
-  padding-bottom: 180px;
-
-  h2, a, span {
-    color: white;
-  }
+  padding-top: 160px;
+  padding-bottom: 260px;
 }
 
 .profiles-container {
   max-width: 1320px;
   margin: 0 auto;
 
-  columns: 300px;
-  column-gap: 20px;
+  columns: 280px;
+  column-gap: 12px;
 
-  margin-top: 60px;
+  margin-top: 120px;
   padding-top: 160px;
 }
 
 .profile-card {
   max-width: 100%;
-  break-inside: avoid;
 
-  background-color: white;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 
-  border: 0.5px solid #4c945a;
   border-radius: 2px;
-  box-shadow: 6px 6px 8px rgba(0, 10, 2, 0.1),
-              -2px -2px 4px rgba(235, 254, 238, 0.2);
 
-  h3 {
-    color: black;
-    padding: 10px 0 5px 20px;
-    margin: 0;
+  position: relative;
+}
+
+.profile-card:hover {
+  box-shadow: 6px 6px 8px rgba(0, 10, 2, 0.1),
+              -2px -2px 8px rgba(235, 254, 238, 0.2);
+  transform: scale(1.02);
+}
+
+.profile-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 4%;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  h3, p {
+    color: white;
   }
 
   p {
-    color: black;
-    padding: 0 0 10px 20px;
     margin: 0;
   }
 }
 
+
 .profile-image {
   width: 100%;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-radius: 2px;
+  opacity: 0.8;
+
 }
 
 .header-div {
