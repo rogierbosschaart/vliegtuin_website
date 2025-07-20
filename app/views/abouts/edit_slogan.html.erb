@@ -1,12 +1,8 @@
 <%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
   <div class="modal-overlay" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
-      <%= simple_form_for [@profile_page] do |f| %>
-        <%= f.input :banner_image, as: :file, label: "BANNER" %>
-        <%= f.input :naam, label: "NAAM" %>
-        <%= f.input :beroep, label: "BEROEP" %>
-        <%= f.input :email, label: "EMAIL" %>
-        <%= f.input :info, label: "INFO", input_html: { rows: 10 } %>
+      <%= simple_form_for [@about] do |f| %>
+        <%= f.input :slogan, label: "SLOGAN" %>
         <%= f.submit "VERSTUUR" %>
       <% end %>
       <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>

@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
 
+  def index
+    @events = Event.all.order(date: :asc, start_time: :asc)
+    @upcoming_events = @events.select { |event| event.date >= Date.today }
+    @past_events = @events.select { |event| event.date < Date.today }
+  end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -39,6 +45,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :date, :start_time, :end_time)
+    params.require(:event).permit(:card_image, :title, :description, :date, :start_time, :end_time)
   end
 end

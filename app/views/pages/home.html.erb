@@ -1,43 +1,75 @@
-<div class="page-container">
+<%= render "shared/navbar" %>
+<section class="banner-section">
   <div class="banner">
-    <%= image_tag "Vliegtuin.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+    <%= image_tag "Vliegtuin_logo_text.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+    <%# <h1 class="banner-header">De Vliegtuin</h1> %>
   </div>
+</section>
 
-  <div class="about-container">
-    <h1 class="centered my-3">De Vliegtuin</h1>
-    <p class="centered">
-      Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.
-    </p>
-    <%= link_to "Meer over ons...", class:"page-link" %>
-  </div>
-
-  <div class="events-container">
-    <h2>Evenementen</h2>
-
-    <% @events.each do |event| %>
-      <div class="event-container">
-        <%= link_to event_path(event) do %>
-          <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-          <div class="date-time">
-            <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+<div class="medium-light-background">
+  <section class="about-section">
+    <div class="about-container">
+      <h2 class="about-header">Culturele Vrijplaats</h2>
+      <div class="about-image-container">
+        <% if @about.first.about_image.presence %>
+          <%= cl_image_tag @about.first.about_image.key, class: "about-image" %>
+        <% else %>
+          <div class="about-image-placeholder">
+            <h2>Banner Image</h2>
+            <p>Upload a banner image to personalize your profile page.</p>
           </div>
         <% end %>
+        <% if user_signed_in? %>
+          <%= link_to  edit_about_image_about_path(@about.first), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+            <i class="fa-solid fa-pen" id="edit-pen"></i>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+      <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
+    </div>
+  </section>
 
-  </div>
+  <%# EVENEMENTEN %>
+  <section class="events-section">
+    <h2 class="events-header">Evenementen</h2>
 
-  <div class="profiles-container">
-    <h2>Onze Makers</h2>
-
-    <% @profile_pages.each do |profile| %>
-      <%= link_to profile_page_path(profile) do %>
-        <h2><%= profile.naam %></h2>
+    <div class="events-container">
+      <% @events.each do |event| %>
+        <%= link_to event_path(event) do %>
+          <div class="event-card">
+            <% if event.card_image.present? %>
+              <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
+            <% else %>
+              <h1>No Image Yet</h1>
+            <% end %>
+            <div class="event-details">
+              <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
+              <div class="date-time">
+                <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    <%= link_to "Alle evenementen...", events_path, class:"page-link" %>
+  </section>
 
-
-  <%= link_to "Nieuw evenement", new_event_path %>
-  <%= link_to "Nieuwe Profiel Pagina", new_profile_page_path %>
+  <%# PROFIEL PAGINAS %>
+  <section class="profiles-section">
+    <h2 class="makers-header">Onze Makers</h2>
+    <div class="profiles-container">
+      <% @profile_pages.each do |profile| %>
+        <%= link_to profile_page_path(profile) do %>
+          <div class="profile-card">
+            <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+            <div class="profile-info">
+              <h3><%= profile.naam %></h3>
+              <p><%= profile.beroep %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
 </div>

@@ -1,0 +1,160 @@
+h1, h2, h3, h4, h5, h6, p, span, a {
+  font-family: 'Rubik', sans-serif;
+  color: #050707
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+h2 {
+  font-family: "Alfa Slab One", serif;
+  font-size: 36px;
+  font-weight: 400;
+  z-index: 100;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+.about-header {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 60%;
+  z-index: 2;
+  margin-left: -20px;
+
+  font-size: 120px;
+  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
+              0 0 4px rgba(246, 244, 185, 0.3),
+              0 0 1px rgba(255, 247, 1, 0.3);
+}
+
+.page-link {
+  font-size: 16px;
+  color: white;
+
+  padding: 4px 20px;
+  margin: 20px;
+
+  background-color: #011f0e;
+  border-radius: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+.page-link:hover {
+  color: white;
+  background-color: #011f0e;
+  transform: scale(1.05);
+}
+
+.banner-header {
+  font-family: "Alfa Slab One", serif;
+  font-size: 132px;
+  font-weight: 200;
+  margin-top: -10%;
+  position: absolute;
+  bottom: 6%;
+  left: 16%;
+  z-index: 1;
+  text-align: center;
+}
+
+.makers-header {
+  font-size: 120px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #FFFDFE;
+
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+.events-header {
+  font-family: "Alfa Slab One", serif;
+  font-size: 68px;
+  font-weight: 200;
+  color: white;
+
+  background-color: black;
+  padding: 5px 40px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
+              -1px -1px 8px rgba(192, 195, 175, 0.1),
+              0 0 2px rgba(255, 255, 1, 0.2);
+
+  transform: rotateZ(16deg);
+  position: absolute;
+  top: 180px;
+  right: 40px;
+}
+
+@media only screen and (max-width: 1090px) {
+  .makers-header {
+    font-size: 140px;
+    // margin-left: -80px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .makers-header {
+    font-size: 120px;
+    // margin-left: -40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .makers-header {
+    font-size: 100px;
+    // margin-left: -20px;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  .makers-header {
+    font-size: 80px;
+    // margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 484px) {
+  .makers-header {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .makers-header {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .makers-header {
+    font-size: 40px;
+  }
+}
