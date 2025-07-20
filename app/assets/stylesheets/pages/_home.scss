@@ -1,20 +1,5 @@
-// Specific CSS for your home-page
-section {
-  padding: 20px 15%;
-}
-
-@media only screen and (max-width: 800px) {
-  section {
-    padding: 20px 10%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  section {
-    padding: 20px 5%;
-  }
-}
-
+// HOMEPAGE //
+// Banner section //
 .banner-section {
   padding: 0;
   position: absolute;
@@ -27,11 +12,14 @@ section {
   justify-items: center;
 }
 
+///////////////////
+
 .medium-light-background {
   margin-top: 92vh;
   background-image: linear-gradient(10deg, #4c9553, #a0d6a6);
 }
 
+// About section //
 .about-container {
   max-width: 1320px;
   padding: 100px 0 140px 0;
@@ -59,33 +47,9 @@ section {
   border-radius: 2px;
 }
 
-.about-image-edit {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+///////////////////
 
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-
-  cursor: pointer;
-}
-
-.about-image-edit:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-#edit-pen {
-  color: white;
-  font-size: 20px;
-}
-
+// Events section //
 .events-section {
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 90%);
   margin: -8% auto -20% auto;
@@ -148,7 +112,9 @@ section {
     margin: 0;
   }
 }
+///////////////////////////
 
+// Profiles section //
 .profiles-section {
   position: relative;
   z-index: 1;
@@ -204,15 +170,9 @@ section {
   }
 }
 
-
 .profile-image {
   width: 100%;
   border-radius: 2px;
   opacity: 0.8;
 
-}
-
-.header-div {
-  position: relative;
-  z-index: 100;
 }

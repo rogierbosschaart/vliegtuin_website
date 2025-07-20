@@ -2,13 +2,7 @@
   <div class="modal-overlay" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
       <%= simple_form_for [@profile_page] do |f| %>
-        <%= f.input :email, label: "EMAIL" %>
-        <%= f.input :phone_number, label: "TELEFOON" %>
-        <%= f.input :website, label: "WEBSITE" %>
-        <%= f.input :facebook, label: "FACEBOOK" %>
-        <%= f.input :instagram, label: "INSTAGRAM" %>
-        <%= f.input :linkedin, label: "LINKEDIN" %>
-        <%= f.input :pinterest, label: "PINTEREST" %>
+        <%= f.input :images, as: :file, label: "IMAGES", input_html: { multiple: true } %>
         <%= f.submit "VERSTUUR" %>
       <% end %>
       <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
       get :edit_banner
       get :edit_contact_info
       get :edit_bio
+      get :add_images
+      get :edit_images
+      get :edit_profile_image
     end
+    delete 'images/:id', to: 'profile_pages#destroy_image', as: :destroy_image
   end
   resources :abouts, only: [:edit_slogan, :edit_info, :update] do
     member do

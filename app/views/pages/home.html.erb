@@ -1,3 +1,4 @@
+<%= render "shared/navbar" %>
 <section class="banner-section">
   <div class="banner">
     <%= image_tag "Vliegtuin_logo_text.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
@@ -19,7 +20,7 @@
           </div>
         <% end %>
         <% if user_signed_in? %>
-          <%= link_to  edit_about_image_about_path(@about.first), data: { turbo_frame: "modal" }, class: "about-image-edit" do %>
+          <%= link_to  edit_about_image_about_path(@about.first), data: { turbo_frame: "modal" }, class: "image-edit" do %>
             <i class="fa-solid fa-pen" id="edit-pen"></i>
           <% end %>
         <% end %>

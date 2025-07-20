@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_19_163917) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_20_084736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_19_163917) do
     t.string "pinterest"
     t.string "linkedin"
     t.string "website"
+    t.string "phone_number"
     t.index ["user_id"], name: "index_profile_pages_on_user_id"
   end
 
