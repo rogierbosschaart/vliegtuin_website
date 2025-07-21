@@ -5,7 +5,7 @@
       <h2>Over Ons</h2>
       <p><%= @about.slogan %></p>
     </div>
-    <div class="about-image-container">
+    <div class="about-image-container" id="about-second-image-container">
       <% if @about.about_image.presence %>
         <%= cl_image_tag @about.about_image.key, class: "about-image" %>
       <% else %>
@@ -25,7 +25,7 @@
 
 <section class="about-sections about-info-section">
   <div class="my-container">
-    <p class="large-p center"><%= @about.info %></p>
+    <p class="large-p center"><%= @about.first_info %></p>
   </div>
 </section>
 
@@ -45,6 +45,12 @@
         <i class="fa-solid fa-pen" id="edit-pen"></i>
       <% end %>
     <% end %>
+  </div>
+</section>
+
+<section class="about-sections about-info-section">
+  <div class="my-container">
+    <p class="large-p center"><%= @about.second_info %></p>
   </div>
 </section>
 

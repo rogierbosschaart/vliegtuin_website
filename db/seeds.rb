@@ -15,7 +15,8 @@ About.destroy_all
 About.create!(
   slogan: "Culturele Vrijplaats",
   second_slogan: "Ruimte voor kunst, ambacht en vrije makers",
-  info: "Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden."
+  first_info: "Op de rand van oud en nieuw Noord biedt vrijplaats De Vliegtuin al bijna 10 jaar ruimte aan vrije kunstenaars en ambachtslieden. Het achter de bomen verborgen terrein bied ruimte aan 25 ateliers, gevuld met nog veel meer maakbedrijven. Samen brengen zij ambacht terug in een snel groeiende woonwijk waar niet zo lang geleden ambacht en kleine bedrijvigheid bloeiden.",
+  second_info: "De Vliegtuin is een culturele vrijplaats in Amsterdam-Noord, waar kunstenaars en ambachtslieden samenkomen om te creëren en te innoveren. Met een focus op duurzaamheid en gemeenschap, biedt De Vliegtuin een unieke ruimte voor kunst en cultuur."
 )
 
 # NewsItem.create!(
