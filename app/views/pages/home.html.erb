@@ -8,19 +8,19 @@
 
 <div class="medium-light-background">
   <section class="about-section">
-    <div class="about-container">
-      <h2 class="about-header">Culturele Vrijplaats</h2>
-      <div class="about-image-container">
-        <% if @about.first.about_image.presence %>
-          <%= cl_image_tag @about.first.about_image.key, class: "about-image" %>
+    <div class="my-container about-container">
+      <h2 class="about-header"><%= @about.slogan %></h2>
+      <div class="about-home-image-container">
+        <% if @about.about_home_image.presence %>
+          <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
         <% else %>
           <div class="about-image-placeholder">
-            <h2>Banner Image</h2>
-            <p>Upload a banner image to personalize your profile page.</p>
+            <h2>Over ons Image</h2>
+            <p>Upload een foto</p>
           </div>
         <% end %>
         <% if user_signed_in? %>
-          <%= link_to  edit_about_image_about_path(@about.first), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+          <%= link_to  edit_about_home_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
             <i class="fa-solid fa-pen" id="edit-pen"></i>
           <% end %>
         <% end %>
@@ -33,7 +33,7 @@
   <section class="events-section">
     <h2 class="events-header">Evenementen</h2>
 
-    <div class="events-container">
+    <div class="my-container events-container">
       <% @events.each do |event| %>
         <%= link_to event_path(event) do %>
           <div class="event-card">
@@ -56,9 +56,17 @@
   </section>
 
   <%# PROFIEL PAGINAS %>
-  <section class="profiles-section">
+  <section class="news-section">
+    <h2 class="news-header">Nieuws</h2>
+    <div class="my-container news-container">
+      <h3><%= @news.title %></h3>
+      <p><%= @news.info %></p>
+    </div>
+  </section>
+</div>
+<section class="profiles-section">
     <h2 class="makers-header">Onze Makers</h2>
-    <div class="profiles-container">
+    <div class="my-container profiles-container">
       <% @profile_pages.each do |profile| %>
         <%= link_to profile_page_path(profile) do %>
           <div class="profile-card">
@@ -72,4 +80,3 @@
       <% end %>
     </div>
   </section>
-</div>

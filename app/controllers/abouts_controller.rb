@@ -1,5 +1,5 @@
 class AboutsController < ApplicationController
-  before_action :find_about, only: [:edit_slogan, :edit_info, :edit_about_image, :update]
+  before_action :find_about, only: [:edit_slogan, :edit_info, :edit_about_image, :edit_about_home_image, :edit_about_second_image, :update]
 
   def edit_slogan
   end
@@ -8,6 +8,12 @@ class AboutsController < ApplicationController
   end
 
   def edit_about_image
+  end
+
+  def edit_about_home_image
+  end
+
+  def edit_about_second_image
   end
 
   def update
@@ -22,7 +28,12 @@ class AboutsController < ApplicationController
   private
 
   def about_params
-    params.require(:about).permit(:info, :slogan, :about_image)
+    params.require(:about).permit(
+                    :info,
+                    :slogan,
+                    :about_image,
+                    :about_second_image,
+                    :about_home_image)
   end
 
   def find_about

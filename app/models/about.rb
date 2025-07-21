@@ -1,6 +1,8 @@
 class About < ApplicationRecord
   validate :only_one_record, on: :create
   has_one_attached :about_image
+  has_one_attached :about_second_image
+  has_one_attached :about_home_image
 
   private
 

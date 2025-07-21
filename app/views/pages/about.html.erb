@@ -1,2 +1,57 @@
 <%= render "shared/navbar" %>
-<h1 class="centered">Over Ons</h1>
+<section class="about-sections about-banner-section">
+  <div class="my-container about-banner-container">
+    <div class="about-us-header">
+      <h2>Over Ons</h2>
+      <p><%= @about.slogan %></p>
+    </div>
+    <div class="about-image-container">
+      <% if @about.about_image.presence %>
+        <%= cl_image_tag @about.about_image.key, class: "about-image" %>
+      <% else %>
+        <div class="about-image-placeholder">
+          <h2>Over ons Image</h2>
+          <p>Upload een foto</p>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to edit_about_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+          <i class="fa-solid fa-pen" id="edit-pen"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="about-sections about-info-section">
+  <div class="my-container">
+    <p class="large-p center"><%= @about.info %></p>
+  </div>
+</section>
+
+<section class="about-sections  second-slogan-section">
+  <h2 class="about-second-slogan"><%= @about.second_slogan %></h2>
+  <div class="about-second-image-container">
+    <% if @about.about_second_image.presence %>
+      <%= cl_image_tag @about.about_second_image.key, class: "about-image" %>
+    <% else %>
+      <div class="about-image-placeholder">
+        <h2>Over ons Image</h2>
+        <p>Upload een foto</p>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to edit_about_second_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+        <i class="fa-solid fa-pen" id="edit-pen"></i>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<section class="about-sections news-section">
+  <div class="my-container">
+    <h2><%= @news.title %></h3>
+    <p><%= @news.info %></p>
+  </div>
+
+</section>

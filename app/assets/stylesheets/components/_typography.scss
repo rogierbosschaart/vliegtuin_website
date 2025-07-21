@@ -39,6 +39,17 @@ a {
   text-decoration: none;
 }
 
+.large-p {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
 .about-header {
   position: absolute;
   top: 40%;
@@ -73,7 +84,7 @@ a {
 }
 
 .banner-header {
-  font-family: "Alfa Slab One", serif;
+  // font-family: "Alfa Slab One", serif;
   font-size: 132px;
   font-weight: 200;
   margin-top: -10%;

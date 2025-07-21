@@ -15,12 +15,13 @@ body {
   background-color: white;
   position: relative;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #86c68d, #f0f0f0);
+  background-image: linear-gradient(to bottom, #e7fbe9, #f8f8f8);
 }
 
 // Section basic styles //
 section {
-  padding: 20px 15%
+  padding: 20px 15%;
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 800px) {
@@ -66,3 +67,9 @@ section {
   font-size: 20px;
 }
 ///////////////////////////////////////
+
+.my-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
