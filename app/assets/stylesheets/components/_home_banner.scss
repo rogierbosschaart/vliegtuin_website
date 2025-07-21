@@ -8,4 +8,20 @@
   left: 25%;
   top: 14%;
   z-index: 100;
+
+  animation-name: logo;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes logo {
+  0% {
+    opacity: 0.95;
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
 }

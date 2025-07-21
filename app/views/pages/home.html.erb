@@ -1,82 +1,103 @@
 <%= render "shared/navbar" %>
-<section class="banner-section">
-  <div class="banner">
-    <%= image_tag "Vliegtuin_logo_2-01.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
-    <%# <h1 class="banner-header">De Vliegtuin</h1> %>
-  </div>
-</section>
+<div class="appear">
+  <section class="banner-section">
+    <div class="banner">
+      <%= image_tag "Vliegtuin_logo_2-01.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+      <%# <h1 class="banner-header">De Vliegtuin</h1> %>
+    </div>
+  </section>
 
-<div class="medium-light-background">
-  <section class="about-section">
-    <div class="my-container about-container">
-      <h2 class="about-header"><%= @about.slogan %></h2>
-      <div class="about-home-image-container">
-        <% if @about.about_home_image.presence %>
-          <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
-        <% else %>
-          <div class="about-image-placeholder">
-            <h2>Over ons Image</h2>
-            <p>Upload een foto</p>
-          </div>
-        <% end %>
-        <% if user_signed_in? %>
-          <%= link_to  edit_about_home_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
-            <i class="fa-solid fa-pen" id="edit-pen"></i>
+  <div class="medium-light-background">
+    <section class="about-section">
+      <div class="my-container about-container">
+        <h2 class="about-header"><%= @about.slogan %></h2>
+        <div class="block about-home-image-container">
+          <% if @about.about_home_image.presence %>
+            <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
+          <% else %>
+            <div class="about-image-placeholder">
+              <h2>Over ons Image</h2>
+              <p>Upload een foto</p>
+            </div>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to  edit_about_home_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+              <i class="fa-solid fa-pen" id="edit-pen"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
+      </div>
+    </section>
+
+    <%# EVENEMENTEN %>
+    <section class="events-section">
+      <h2 class="events-header">Evenementen</h2>
+
+      <div class="my-container events-container">
+        <% @events.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="block event-card">
+              <% if event.card_image.present? %>
+                <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
+              <% else %>
+                <h1>No Image Yet</h1>
+              <% end %>
+              <div class="event-details">
+                <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
+                <div class="date-time">
+                  <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+                </div>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </div>
-      <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
-    </div>
-  </section>
+      <%= link_to "Alle evenementen...", events_path, class:"page-link" %>
+    </section>
 
-  <%# EVENEMENTEN %>
-  <section class="events-section">
-    <h2 class="events-header">Evenementen</h2>
-
-    <div class="my-container events-container">
-      <% @events.each do |event| %>
-        <%= link_to event_path(event) do %>
-          <div class="event-card">
-            <% if event.card_image.present? %>
-              <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
-            <% else %>
-              <h1>No Image Yet</h1>
-            <% end %>
-            <div class="event-details">
-              <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-              <div class="date-time">
-                <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
-              </div>
+    <%# NIEUWS %>
+    <section class="about-section">
+      <div class="my-container news-container">
+        <div class="news-header">
+          <h2><%= @news.title %></h2>
+          <p>Nieuws </p>
+        </div>
+        <div class="block about-home-image-container">
+          <% if @about.about_home_image.presence %>
+            <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
+          <% else %>
+            <div class="about-image-placeholder">
+              <h2>Over ons Image</h2>
+              <p>Upload een foto</p>
             </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <%= link_to "Alle evenementen...", events_path, class:"page-link" %>
-  </section>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to  edit_about_home_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+              <i class="fa-solid fa-pen" id="edit-pen"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to "Meer nieuws...", over_ons_path, class:"page-link" %>
+      </div>
+    </section>
+  </div>
 
   <%# PROFIEL PAGINAS %>
-  <section class="news-section">
-    <h2 class="news-header">Nieuws</h2>
-    <div class="my-container news-container">
-      <h3><%= @news.title %></h3>
-      <p><%= @news.info %></p>
-    </div>
-  </section>
-</div>
-<section class="profiles-section">
-    <h2 class="makers-header">Onze Makers</h2>
-    <div class="my-container profiles-container">
-      <% @profile_pages.each do |profile| %>
-        <%= link_to profile_page_path(profile) do %>
-          <div class="profile-card">
-            <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
-            <div class="profile-info">
-              <h3><%= profile.naam %></h3>
-              <p><%= profile.beroep %></p>
+  <section class="profiles-section">
+      <h2 class="makers-header">Onze Makers</h2>
+      <div class="my-container profiles-container">
+        <% @profile_pages.each do |profile| %>
+          <%= link_to profile_page_path(profile) do %>
+            <div class="block profile-card">
+              <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+              <div class="profile-info">
+                <h3><%= profile.naam %></h3>
+                <p><%= profile.beroep %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  </section>
+      </div>
+    </section>
+</div>

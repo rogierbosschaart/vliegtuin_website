@@ -64,6 +64,25 @@ a {
               0 0 1px rgba(255, 247, 1, 0.3);
 }
 
+.news-header {
+  position: absolute;
+  top: 60%;
+  right: 0;
+  width: 60%;
+  z-index: 2;
+  margin-left: -20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+
+  font-size: 80px;
+  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
+              0 0 4px rgba(246, 244, 185, 0.3),
+              0 0 1px rgba(255, 247, 1, 0.3);
+}
+
 .page-link {
   font-size: 16px;
   color: white;
@@ -96,13 +115,22 @@ a {
 }
 
 .makers-header {
-  font-size: 120px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  color: #FFFDFE;
+  font-family: "Alfa Slab One", serif;
+  font-size: 68px;
+  font-weight: 200;
+  color: white;
 
+  background-color: black;
+  padding: 5px 40px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
+              -1px -1px 8px rgba(192, 195, 175, 0.1),
+              0 0 2px rgba(255, 255, 1, 0.2);
+
+  transform: rotateZ(-16deg);
   position: absolute;
-  top: 25%;
-  left: 5%;
+  top: 200px;
+  left: 40px;
 }
 
 .events-header {
