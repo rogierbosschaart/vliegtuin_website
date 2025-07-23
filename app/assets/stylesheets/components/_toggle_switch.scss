@@ -1,0 +1,33 @@
+input.toggle-switch {
+  display: none; /* Hide the default checkbox */
+}
+
+label.toggle-label {
+  display: block;
+  width: 40px;
+  height: 18px;
+  background-color: #b54c46;
+  border: solid 1px white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  position: relative;
+}
+
+label.toggle-label::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50px;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+input.toggle-switch:checked + label.toggle-label {
+  background-color: #4CAF50;
+}
+input.toggle-switch:checked + label.toggle-label::before {
+  transform: translateX(100%);
+}
