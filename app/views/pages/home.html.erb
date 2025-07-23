@@ -1,10 +1,7 @@
 <%= render "shared/navbar" %>
 <div class="appear">
   <section class="banner-section">
-    <div class="banner">
-      <%= image_tag "Vliegtuin_logo_2-01.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
-      <%# <h1 class="banner-header">De Vliegtuin</h1> %>
-    </div>
+    <%= image_tag "Vliegtuin_logo_2-01.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
   </section>
 
   <div class="medium-light-background">
@@ -33,7 +30,6 @@
     <%# EVENEMENTEN %>
     <section class="events-section">
       <h2 class="stamped-header events-header">Evenementen</h2>
-
       <div class="my-container events-container">
         <% @events.each do |event| %>
           <%= link_to event_path(event) do %>

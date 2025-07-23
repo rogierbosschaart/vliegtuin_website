@@ -37,28 +37,6 @@
   }
 }
 
-.about-us-header {
-  position: absolute;
-  z-index: 2;
-  bottom: 10%;
-  left: 15%;
-  margin: 0;
-  width: 80%;
-
-  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
-              0 0 4px rgba(246, 244, 185, 0.3),
-              0 0 1px rgba(255, 247, 1, 0.3);
-
-  h2 {
-    font-size: 120px;
-    margin-bottom: 0;
-  }
-  p {
-    font-family: "Alfa Slab One", serif;
-    font-size: 60px;
-  }
-}
-
 .about-image-container {
   height: 70vh;
   aspect-ratio: 5 / 4;
@@ -80,25 +58,12 @@
   clip-path: polygon(0 0, 100% 12%, 100% 88%, 0% 100%);
 }
 
-.second-slogan-section h2 {
-  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  font-size: 80px;
-  position: absolute;
-  text-align: center;
-  width: 80%;
-  bottom: 30%;
-  left: 10%;
-
-  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
-              0 0 4px rgba(246, 244, 185, 0.3),
-              0 0 1px rgba(255, 247, 1, 0.3);
-}
-
 .news-section {
   padding-bottom: 260px;
 }
 
 .second-slogan-section {
+  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
   padding: 20px 10%;
   margin: 100px auto;
   position: relative;
@@ -106,7 +71,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // background-image: radial-gradient(closest-side, rgba(110, 208, 139, 0.6), rgba(255, 255, 255, 0));
 }
 
 .about-second-image-container {

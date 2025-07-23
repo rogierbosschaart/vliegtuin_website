@@ -1,7 +1,6 @@
 // HOMEPAGE //
 // Banner section //
 .banner-section {
-  height: 105vh;
   width: 100vw;
   background-image: radial-gradient(closest-side, rgb(240, 255, 142), rgba(255,255,255, 0.0));
   align-content: center;
@@ -17,10 +16,11 @@
 // About section //
 .about-section {
   background-image: linear-gradient(10deg, #86bb8c, #a0d6a6);
+  // clip-path: polygon(0 0, 100% 6%, 100% 92%, 0% 100%);
 }
 
 .about-container {
-  padding: 100px 0 140px 0;
+  padding: 40px 0 140px 0;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +31,8 @@
 }
 
 .about-home-image-container {
-  height: 80vh;
+  max-height: 80vh;
+  max-width: 60vw;
   aspect-ratio: 5 / 4;
   position: relative;
 }
@@ -48,13 +49,15 @@
 
 // Events section //
 .events-section {
-  min-height: 100vh;
+  // min-height: 100vh;
   clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 90%);
-  margin: -8% auto -20% auto;
+  padding-top: 200px;
+  padding-bottom: 140px;
+  margin-top: -5%;
+  margin-bottom: -7%;
 
-  // background-image: linear-gradient(350deg, rgba(1,31,14, 1.0), rgba(1,31,14, 0.85));
+  background-image: linear-gradient(350deg, rgba(1,31,14, 1.0), rgba(1,31,14, 1.0));
 
-  padding-bottom: 260px;
   position: relative;
 
   display: flex;
@@ -64,7 +67,7 @@
 }
 
 .events-container {
-  padding-top: 160px;
+  // padding-top: 160px;
 }
 
 .event-card {
@@ -114,7 +117,7 @@
   background-image: linear-gradient(10deg, #86bb8c, #a0d6a6);
 }
 .news-container {
-  padding: 320px 0 120px 0;
+  padding: 140px 0 40px 0;
 
   display: flex;
   flex-direction: column;
@@ -124,7 +127,6 @@
   position: relative;
 
   h2 {
-    font-size: 80px;
     margin-bottom: 0;
     text-align: right;
   }
@@ -145,13 +147,10 @@
 // Profiles section //
 .profiles-section {
   // background-image: linear-gradient(350deg, rgba(1,31,14, 1.0), rgba(1,31,14, 1.0));
-  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+  // clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   margin-top: -5%;
   position: relative;
   z-index: 1;
-
-  padding-top: 100px;
-  padding-bottom: 260px;
 }
 
 .profiles-container {
@@ -164,11 +163,8 @@
 
 .profile-card {
   max-width: 100%;
-
   margin-bottom: 12px;
-
   border-radius: 2px;
-
   position: relative;
 }
 
