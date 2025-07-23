@@ -1,0 +1,17 @@
+<%= render "shared/navbar" %>
+<section class="profiles-section">
+  <h2 class="stamped-header makers-header">Onze Makers</h2>
+  <div class="my-container profiles-container">
+    <% @profile_pages.each do |profile| %>
+      <%= link_to profile_page_path(profile) do %>
+        <div class="block profile-card">
+          <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+          <div class="profile-info">
+            <h3><%= profile.naam %></h3>
+            <p><%= profile.beroep %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>

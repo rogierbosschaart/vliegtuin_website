@@ -1,0 +1,11 @@
+<%= render 'shared/navbar' %>
+<% @news_items.each do |item| %>
+  <%= link_to news_item_path(item) do %>
+    <div>
+      <%# if item.news_item_image.presence %>
+        <%#= cl_image_tag item.news_item_image.key %>
+      <%# end %>
+      <h3><%= item.title %></h3>
+    </div>
+  <% end %>
+<% end %>
