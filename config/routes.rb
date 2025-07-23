@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'over_ons', to: 'pages#about'
 
   resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :profile_pages, only: [:show, :new, :create, :update, :destroy] do
+  resources :profile_pages, only: [:index, :show, :new, :create, :update, :destroy] do
     member do
       get :edit_banner
       get :edit_contact_info
@@ -25,4 +25,5 @@ Rails.application.routes.draw do
       get :edit_about_second_image
     end
   end
+  resources :news_items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end

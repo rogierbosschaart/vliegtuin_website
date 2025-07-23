@@ -1,6 +1,10 @@
 class ProfilePagesController < ApplicationController
   before_action :find_profile_page, only: [:show, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_image, :update, :destroy, :add_images, :edit_images]
 
+  def index
+    @profile_pages = ProfilePage.all.order(updated_at: :desc)
+  end
+
   def show
   end
 

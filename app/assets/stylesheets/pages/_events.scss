@@ -36,22 +36,4 @@
   }
 }
 
-.events-page-header {
-  font-family: "Alfa Slab One", serif;
-  font-size: 68px;
-  font-weight: 200;
-  color: white;
 
-  background-color: black;
-  padding: 5px 40px;
-  border-radius: 4px;
-  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
-              -1px -1px 8px rgba(192, 195, 175, 0.1),
-              0 0 2px rgba(255, 255, 1, 0.2);
-
-  transform: rotateZ(-16deg);
-  position: absolute;
-  top: 6%;
-  left: 3%;
-  z-index: 2;
-}

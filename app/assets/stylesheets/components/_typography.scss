@@ -50,6 +50,12 @@ a {
   text-align: center;
 }
 
+.floating-header {
+  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
+              0 0 4px rgba(246, 244, 185, 0.3),
+              0 0 1px rgba(255, 247, 1, 0.3);
+}
+
 .about-header {
   position: absolute;
   top: 40%;
@@ -59,18 +65,17 @@ a {
   margin-left: -20px;
 
   font-size: 120px;
-  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
-              0 0 4px rgba(246, 244, 185, 0.3),
-              0 0 1px rgba(255, 247, 1, 0.3);
+  // text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
+  //             0 0 4px rgba(246, 244, 185, 0.3),
+  //             0 0 1px rgba(255, 247, 1, 0.3);
 }
 
-.news-header {
+.news-header-div {
   position: absolute;
   top: 60%;
   right: 0;
   width: 60%;
   z-index: 2;
-  margin-left: -20px;
 
   display: flex;
   flex-direction: column;
@@ -78,9 +83,9 @@ a {
   justify-content: center;
 
   font-size: 80px;
-  text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
-              0 0 4px rgba(246, 244, 185, 0.3),
-              0 0 1px rgba(255, 247, 1, 0.3);
+  // text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
+  //             0 0 4px rgba(246, 244, 185, 0.3),
+  //             0 0 1px rgba(255, 247, 1, 0.3);
 }
 
 .page-link {
@@ -102,20 +107,8 @@ a {
   transform: scale(1.05);
 }
 
-.banner-header {
-  // font-family: "Alfa Slab One", serif;
-  font-size: 132px;
-  font-weight: 200;
-  margin-top: -10%;
-  position: absolute;
-  bottom: 6%;
-  left: 16%;
-  z-index: 1;
-  text-align: center;
-}
-
-.makers-header {
-  font-family: "Alfa Slab One", serif;
+//////// STAMPED HEADERS ////////
+.stamped-header {
   font-size: 68px;
   font-weight: 200;
   color: white;
@@ -126,7 +119,9 @@ a {
   box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
               -1px -1px 8px rgba(192, 195, 175, 0.1),
               0 0 2px rgba(255, 255, 1, 0.2);
+}
 
+.makers-header {
   transform: rotateZ(-16deg);
   position: absolute;
   top: 200px;
@@ -134,66 +129,16 @@ a {
 }
 
 .events-header {
-  font-family: "Alfa Slab One", serif;
-  font-size: 68px;
-  font-weight: 200;
-  color: white;
-
-  background-color: black;
-  padding: 5px 40px;
-  border-radius: 4px;
-  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
-              -1px -1px 8px rgba(192, 195, 175, 0.1),
-              0 0 2px rgba(255, 255, 1, 0.2);
-
   transform: rotateZ(16deg);
   position: absolute;
   top: 180px;
   right: 40px;
 }
 
-@media only screen and (max-width: 1090px) {
-  .makers-header {
-    font-size: 140px;
-    // margin-left: -80px;
-  }
-}
-
-@media only screen and (max-width: 950px) {
-  .makers-header {
-    font-size: 120px;
-    // margin-left: -40px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .makers-header {
-    font-size: 100px;
-    // margin-left: -20px;
-  }
-}
-
-@media only screen and (max-width: 615px) {
-  .makers-header {
-    font-size: 80px;
-    // margin-left: 0;
-  }
-}
-
-@media only screen and (max-width: 484px) {
-  .makers-header {
-    font-size: 60px;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .makers-header {
-    font-size: 50px;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .makers-header {
-    font-size: 40px;
-  }
+.events-page-header {
+  transform: rotateZ(-16deg);
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  z-index: 2;
 }

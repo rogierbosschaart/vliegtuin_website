@@ -3,7 +3,7 @@
   <div class="bottom-padding">
     <div class="profile-banner">
       <% if @profile_page.banner_image.presence %>
-        <%= cl_image_tag @profile_page.banner_image.key, class: "banner_image" %>
+        <%= cl_image_tag @profile_page.banner_image.key, class: "banner_image", id: "appear-profile-image" %>
       <% else %>
         <div class="banner-placeholder">
           <h2>Banner Image</h2>
@@ -78,9 +78,9 @@
 
     <% end %>
     <%# IMAGE CAROUSEL HERE %>
-    <div class="my-container profiles-images-container">
+    <div class="appear my-container profiles-images-container">
       <% @profile_page.images.each do |image| %>
-        <div class="profiles-images">
+        <div class="block profiles-images">
           <div class="profile-page-image">
             <%= cl_image_tag image.key %>
           </div>

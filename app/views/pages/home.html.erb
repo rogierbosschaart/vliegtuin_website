@@ -10,7 +10,7 @@
   <div class="medium-light-background">
     <section class="about-section">
       <div class="my-container about-container">
-        <h2 class="about-header"><%= @about.slogan %></h2>
+        <h2 class="floating-header about-header"><%= @about.slogan %></h2>
         <div class="block about-home-image-container">
           <% if @about.about_home_image.presence %>
             <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
@@ -32,7 +32,7 @@
 
     <%# EVENEMENTEN %>
     <section class="events-section">
-      <h2 class="events-header">Evenementen</h2>
+      <h2 class="stamped-header events-header">Evenementen</h2>
 
       <div class="my-container events-container">
         <% @events.each do |event| %>
@@ -59,7 +59,7 @@
     <%# NIEUWS %>
     <section class="about-section">
       <div class="my-container news-container">
-        <div class="news-header">
+        <div class="floating-header news-header-div">
           <h2><%= @news.title %></h2>
           <p>Nieuws </p>
         </div>
@@ -85,7 +85,7 @@
 
   <%# PROFIEL PAGINAS %>
   <section class="profiles-section">
-      <h2 class="makers-header">Onze Makers</h2>
+      <h2 class="stamped-header makers-header">Onze Makers</h2>
       <div class="my-container profiles-container">
         <% @profile_pages.each do |profile| %>
           <%= link_to profile_page_path(profile) do %>

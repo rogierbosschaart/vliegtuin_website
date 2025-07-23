@@ -20,7 +20,10 @@
           <%= link_to "Evenementen", events_path, class: "my-nav" %>
         </li>
         <li class="nav-item-item">
-          <%= link_to "Contact", "#", class: "my-nav" %>
+          <%= link_to " Makers", profile_pages_path, class: "my-nav" %>
+        </li>
+        <li class="nav-item-item">
+          <%= link_to "Nieuws", news_items_path , class: "my-nav" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item-item">

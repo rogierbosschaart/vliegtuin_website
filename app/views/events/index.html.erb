@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 <section class="events-page">
-  <h1 class="events-page-header">Evenementen</h1>
+  <h1 class="stamped-header events-page-header">Evenementen</h1>
   <div class="events-page-container">
     <% @events.each do |event| %>
       <%= link_to event_path(event) do %>
