@@ -32,5 +32,9 @@ Rails.application.routes.draw do
       get :edit_about_second_image
     end
   end
-  resources :news_items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :news_items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    member do
+      get :edit_news_image
+    end
+  end
 end

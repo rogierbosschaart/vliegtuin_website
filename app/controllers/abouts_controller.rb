@@ -17,11 +17,13 @@ class AboutsController < ApplicationController
   end
 
   def update
-    @about = About.find(params[:id])
     if @about.update(about_params)
-      redirect_to root_path, notice: 'About was successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to over_ons_path, notice: 'About section was successfully updated.' }
+        format.turbo_stream
+      end
     else
-      render :edit, status: :unprocessable_entity
+      render :edit_about_home_image, status: :unprocessable_entity
     end
   end
 

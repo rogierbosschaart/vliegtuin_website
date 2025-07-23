@@ -1,0 +1,21 @@
+<section class="about-section">
+  <div class="my-container about-container">
+    <h2 class="floating-header about-header"><%= @about.slogan %></h2>
+    <div class="block about-home-image-container">
+      <% if @about.about_home_image.presence %>
+        <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
+      <% else %>
+        <div class="about-image-placeholder">
+          <h2>Over ons Image</h2>
+          <p>Upload een foto</p>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to  edit_about_home_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+          <i class="fa-solid fa-pen" id="edit-pen"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <%= link_to "Meer over ons...", over_ons_path, class:"page-link" %>
+  </div>
+</section>

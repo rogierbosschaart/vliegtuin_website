@@ -1,5 +1,5 @@
 class NewsItemsController < ApplicationController
-  before_action :find_news_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_news_item, only: [:show, :edit, :edit_news_image, :update, :destroy]
 
   def index
     @news_items = NewsItem.all.order(created_at: :desc)
@@ -10,6 +10,9 @@ class NewsItemsController < ApplicationController
 
   def new
     @news_item = NewsItem.new
+  end
+
+  def edit_news_image
   end
 
   def create
@@ -26,7 +29,10 @@ class NewsItemsController < ApplicationController
 
   def update
     if @news_item.update(news_item_params)
-      redirect_to @news_item, notice: 'News item was successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to news_items_path, notice: 'News item was successfully updated.' }
+        format.turbo_stream
+      end
     else
       render :edit, alert: 'Unable to update news item. Please try again.'
     end
