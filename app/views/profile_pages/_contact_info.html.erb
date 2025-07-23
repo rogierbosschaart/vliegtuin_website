@@ -1,0 +1,24 @@
+<div id="contact_info">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3>Contact</h3>
+    <% if user_signed_in? && current_user == profile_page.user %>
+      <%= link_to edit_contact_info_profile_page_path(profile_page), data: { turbo_frame: "modal" } do %>
+        <i class="fa-solid fa-pen mx-5"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="info-text">
+    <% if profile_page.website.presence %>
+      <p><%= profile_page.website %></p>
+    <% end %>
+    <% if profile_page.email.presence %>
+      <p><%= profile_page.email %></p>
+    <% end %>
+    <% if profile_page.phone_number.presence %>
+      <p><%= profile_page.phone_number %></p>
+    <% end %>
+  </div>
+  <div class="social-icons">
+    <%# ... your social icon links ... %>
+  </div>
+</div>

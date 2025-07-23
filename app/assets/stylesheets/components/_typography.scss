@@ -73,20 +73,20 @@ a {
 }
 
 .about-us-header {
-  font-size: 120px;
-  width: 80%;
+  font-size: 96px;
+  width: 64%;
   position: absolute;
   bottom: 10%;
-  left: 15%;
+  left: 20%;
 }
 
 .about-second-slogan {
-  font-size: 80px;
+  font-size: 64px;
   text-align: center;
-  width: 80%;
+  width: 64%;
   position: absolute;
   bottom: 30%;
-  left: 10%;
+  left: 18%;
 }
 //////////////////////////////////////////////
 
@@ -145,4 +145,9 @@ a {
   color: white;
   background-color: #011f0e;
   transform: scale(1.05);
+}
+
+
+.event-page-header {
+  font-size: 64px;
 }

@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
   <div class="modal-overlay" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
-      <%= simple_form_for [@profile_page] do |f| %>
-        <%= f.input :images, as: :file, label: "IMAGES", input_html: { multiple: true } %>
+      <%= simple_form_for [@event] do |f| %>
+        <%= f.input :card_image, as: :file, label: "BANNER" %>
         <%= f.submit "VERSTUUR" %>
       <% end %>
       <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>

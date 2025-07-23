@@ -1,0 +1,17 @@
+<%# This is a generic modal that takes a title, form object, URL, and a fields partial %>
+<%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
+  <div class="modal-overlay" data-action="click->modals#close">
+    <div class="modal-box" data-action="click->modals#preventClose">
+      <%# The form is now built here, ensuring every modal form is identical in structure %>
+      <%= simple_form_for form_object, url: form_url, method: form_method do |f| %>
+        <%# The specific fields for each form will be rendered here %>
+        <%= render fields_partial, f: f %>
+
+        <div class="form-actions mt-3">
+          <%= f.submit "VERSTUUR", class: "btn btn-primary" %>
+          <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

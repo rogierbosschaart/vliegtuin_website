@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :edit_banner]
 
   def index
     @events = Event.all.order(date: :asc, start_time: :asc)
@@ -7,7 +8,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
@@ -23,12 +23,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit_banner
+  end
+
   def edit
-    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to event_path(@event), notice: 'Event was successfully updated.'
     else
@@ -37,7 +38,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path, notice: 'Event was successfully deleted.'
   end
@@ -46,5 +46,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:card_image, :title, :description, :date, :start_time, :end_time)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 end

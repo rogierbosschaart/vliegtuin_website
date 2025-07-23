@@ -1,0 +1,22 @@
+<section>
+  <div class="my-container">
+    <h1><%= current_user.naam %></h1>
+    <% if current_user.profile_pages.any? %>
+      <%= link_to "Mijn Profiel", profile_page_path(current_user.profile_pages.first) %>
+    <% else %>
+      <%= link_to "Maak een profiel", new_profile_page_path %>
+    <% end %>
+
+
+    <% if current_user.admin? %>
+      <div class="mt-5">
+        <h2>Invite a New User</h2>
+        <p>Enter the email address of the user you would like to invite. They will receive an email with instructions on how to set up their account.</p>
+        <%= simple_form_for :user, url: send_user_invitation_path do |f| %>
+          <%= f.input :email, required: true, placeholder: "new.user@example.com" %>
+          <%= f.button :submit, "Send Invitation" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

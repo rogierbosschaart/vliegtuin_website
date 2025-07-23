@@ -11,4 +11,10 @@ class PagesController < ApplicationController
     @about = About.first
     @news = NewsItem.first
   end
+
+  def dashboard
+    @my_profile_page = current_user.profile_pages.first if user_signed_in?
+    @my_events = Event.all if user_signed_in? && current_user.admin?
+  end
+
 end

@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-
+  get 'dashboard', to: 'pages#dashboard'
   get 'over_ons', to: 'pages#about'
+  post 'users/invite', to: 'users#invite', as: :send_user_invitation
 
-  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    member do
+      get :edit_banner
+    end
+  end
+
   resources :profile_pages, only: [:index, :show, :new, :create, :update, :destroy] do
     member do
       get :edit_banner
@@ -16,6 +22,7 @@ Rails.application.routes.draw do
     end
     delete 'images/:id', to: 'profile_pages#destroy_image', as: :destroy_image
   end
+
   resources :abouts, only: [:edit_slogan, :edit_info, :update] do
     member do
       get :edit_slogan

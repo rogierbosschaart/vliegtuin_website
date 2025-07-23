@@ -1,0 +1,20 @@
+<div id="profile_images" class="appear profiles-images-container">
+  <% profile_page.images.each do |image| %>
+    <div class="block profiles-images">
+      <%= cl_image_tag image.key %>
+      <% if user_signed_in? && current_user == profile_page.user %>
+        <%= link_to profile_page_destroy_image_path(profile_page, image),
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "image-edit" do %>
+          <i class="fa-solid fa-trash" id="edit-pen"></i>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if user_signed_in? && current_user == profile_page.user && profile_page.images.length < 16 %>
+    <%= link_to add_images_profile_page_path(profile_page), data: { turbo_frame: "modal" } do %>
+      <div class="add-image">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<div id="profile_bio">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2><%= profile_page.naam %></h2>
+    <% if user_signed_in? && current_user == profile_page.user %>
+      <%= link_to edit_bio_profile_page_path(profile_page), data: { turbo_frame: "modal" } do %>
+        <i class="fa-solid fa-pen mx-5"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <h4><%= profile_page.beroep %></h4>
+  <p class="mt-5 mr-5"><%= simple_format(profile_page.info) %></p>
+</div>
+

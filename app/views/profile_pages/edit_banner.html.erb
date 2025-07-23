@@ -1,11 +1,5 @@
-<%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
-  <div class="modal-overlay" data-action="click->modals#close">
-    <div class="modal-box" data-action="click->modals#preventClose">
-      <%= simple_form_for [@profile_page] do |f| %>
-        <%= f.input :banner_image, as: :file, label: "BANNER" %>
-        <%= f.submit "VERSTUUR" %>
-      <% end %>
-      <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>
-    </div>
-  </div>
-<% end %>
+<%= render 'shared/modal_form',
+      form_object: @profile_page,
+      form_url: profile_page_path(@profile_page),
+      form_method: :patch,
+      fields_partial: 'profile_pages/shared/edit_banner_fields' %>

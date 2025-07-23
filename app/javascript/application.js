@@ -3,3 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+// TURBO STREAM RELOAD FOR PROFILE PAGES
+Turbo.StreamActions.reload = function() {
+  window.location.reload()
+};

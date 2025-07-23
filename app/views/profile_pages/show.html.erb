@@ -1,96 +1,10 @@
-<%= render "shared/navbar" %>
 <section class="profile-page">
-  <div class="profile-banner">
-    <% if @profile_page.banner_image.presence %>
-      <%= cl_image_tag @profile_page.banner_image.key, class: "banner_image", id: "appear-profile-image" %>
-    <% else %>
-      <div class="banner-placeholder">
-        <h2>Banner Image</h2>
-        <p>Upload a banner image to personalize your profile page.</p>
-      </div>
-    <% end %>
-    <% if user_signed_in? && current_user == @profile_page.user %>
-      <%= link_to edit_banner_profile_page_path(@profile_page), data: { turbo_frame: "modal" }, class: "image-edit" do %>
-        <i class="fa-solid fa-pen" id="edit-pen"></i>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'banner', profile_page: @profile_page %>
+
   <div class="profile-content">
-    <div>
-      <div class="d-flex justify-content-between align-items-center">
-        <h2><%= @profile_page.naam %></h2>
-        <% if user_signed_in? && current_user == @profile_page.user %>
-          <%= link_to edit_bio_profile_page_path(@profile_page), data: { turbo_frame: "modal" } do %>
-            <i class="fa-solid fa-pen mx-5"></i>
-          <% end %>
-        <% end %>
-      </div>
-      <h4><%= @profile_page.beroep %></h4>
-      <p class="mt-5 mr-5"><%= simple_format(@profile_page.info) %></p>
-    </div>
-    <div>
-      <div class="d-flex justify-content-between align-items-center">
-        <h3>Contact</h3>
-        <% if user_signed_in? && current_user == @profile_page.user %>
-          <%= link_to edit_contact_info_profile_page_path(@profile_page), data: { turbo_frame: "modal" } do %>
-            <i class="fa-solid fa-pen mx-5"></i>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="info-text">
-        <% if @profile_page.website.presence %>
-          <p><%= @profile_page.website %></p>
-        <% end %>
-        <% if @profile_page.email.presence %>
-          <p><%= @profile_page.email %></p>
-        <% end %>
-        <% if @profile_page.phone_number.presence %>
-          <p><%= @profile_page.phone_number %></p>
-        <% end %>
-      </div>
-      <div class="social-icons">
-        <% if @profile_page.facebook.presence %>
-          <%= link_to "http://#{@profile_page.facebook}", target: "_blank" do %>
-            <i class="fa-brands fa-facebook"></i>
-          <% end %>
-        <% end %>
-        <% if @profile_page.instagram.presence %>
-          <%= link_to "http://#{@profile_page.instagram}", target: "_blank" do %>
-            <i class="fa-brands fa-instagram"></i>
-          <% end %>
-        <% end %>
-        <% if @profile_page.linkedin.presence %>
-          <%= link_to "http://#{@profile_page.linkedin}", target: "_blank" do %>
-            <i class="fa-brands fa-linkedin"></i>
-          <% end %>
-        <% end %>
-        <% if @profile_page.pinterest.presence %>
-          <%= link_to "http://#{@profile_page.pinterest}", target: "_blank" do %>
-            <i class="fa-brands fa-pinterest"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+    <%= render 'bio', profile_page: @profile_page %>
+    <%= render 'contact_info', profile_page: @profile_page %>
   </div>
 
-  <div class="appear my-container profiles-images-container">
-    <% @profile_page.images.each do |image| %>
-      <div class="block profiles-images">
-        <%= cl_image_tag image.key %>
-        <% if user_signed_in? && current_user == @profile_page.user %>
-          <%= link_to profile_page_destroy_image_path(@profile_page, image),
-                          data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this image?" }, class: "image-edit" do %>
-            <i class="fa-solid fa-trash" id="edit-pen"></i>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    <% if user_signed_in? && current_user == @profile_page.user && @profile_page.images.length < 16 %>
-      <%= link_to add_images_profile_page_path do %>
-        <div class="add-image">
-          <i class="fa-solid fa-plus"></i>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'images', profile_page: @profile_page %>
 </section>

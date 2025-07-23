@@ -16,7 +16,7 @@ class ProfilePagesController < ApplicationController
     @profile_page = ProfilePage.new(profile_page_params)
     @profile_page.user = current_user
     if @profile_page.save
-      redirect_to root_path, notice: 'Profile page was successfully created.'
+      redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully created.'
     else
       redirect_to root_path, notice: 'Unable to create profile page. Please try again.'
     end
@@ -58,9 +58,24 @@ class ProfilePagesController < ApplicationController
 
     if @profile_page.update(permitted_params)
       @profile_page.images.attach(images_to_attach) if images_to_attach
-      redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully updated.'
+       respond_to do |format|
+        format.html { redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully updated.' }
+        format.turbo_stream # This will look for update.turbo_stream.erb
+      end
     else
-      render :edit, status: :unprocessable_entity
+      # This logic determines which form to re-render on failure
+      if permitted_params.key?(:banner_image)
+        render :edit_banner, status: :unprocessable_entity
+      elsif permitted_params.key?(:info)
+        render :edit_bio, status: :unprocessable_entity
+      elsif permitted_params.key?(:email)
+        render :edit_contact_info, status: :unprocessable_entity
+      elsif images_to_attach
+        render :add_images, status: :unprocessable_entity
+      else
+        # Fallback for any other case
+        redirect_to @profile_page, alert: "Update failed."
+      end
     end
   end
 
