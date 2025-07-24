@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <%= simple_form_for [@event] do |f| %>
+      <%= f.input :card_image, as: :file, label: "BANNER" %>
       <%= f.input :title, label: "TITEL" %>
       <%= f.input :date, label: "DATUM" %>
       <%= f.input :start_time, label: "BEGINT OM" %>

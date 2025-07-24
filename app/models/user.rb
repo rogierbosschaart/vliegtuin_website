@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :validatable
   has_many :profile_pages, dependent: :delete_all
+  has_many :news_items, dependent: :delete_all
 end

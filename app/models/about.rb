@@ -4,6 +4,10 @@ class About < ApplicationRecord
   has_one_attached :about_second_image
   has_one_attached :about_home_image
 
+  validates :about_image, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
+  validates :about_second_image, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
+  validates :about_home_image, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
+
   private
 
   def only_one_record

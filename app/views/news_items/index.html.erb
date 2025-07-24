@@ -1,12 +1,18 @@
-<section>
-  <% @news_items.each do |item| %>
-    <%= link_to news_item_path(item) do %>
-      <div>
-        <%# if item.news_item_image.presence %>
-          <%#= cl_image_tag item.news_item_image.key %>
-        <%# end %>
-        <h3><%= item.title %></h3>
-      </div>
+<div class="my-container">
+  <h2>Nieuws</h2>
+  <div class="news-cards">
+    <% @news_items.each do |item| %>
+      <%= link_to news_item_path(item) do %>
+        <div class="block news-card">
+          <% if item.news_item_image.presence %>
+            <%= cl_image_tag item.news_item_image.key, class: "news-card-image" %>
+          <% end %>
+          <div class="news-card-info">
+            <h3><%= item.title %></h3>
+            <p><%= item.info.truncate(80) %></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
+  </div>
+</div>

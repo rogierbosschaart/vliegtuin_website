@@ -6,25 +6,34 @@ class NewsItemsController < ApplicationController
   end
 
   def show
+    news_p = @news_item.info.split(/\n|\s*\n/)
+    if news_p.length >= 4
+      @news_first_p = news_p.first(2).join("\n\n")
+      @news_rest_p = news_p[2..].join("\n\n")
+    else
+      @news_first_p = news_p.first
+      @news_rest_p = news_p[1..].join("\n\n")
+    end
   end
 
   def new
     @news_item = NewsItem.new
   end
 
-  def edit_news_image
-  end
-
   def create
     @news_item = NewsItem.new(news_item_params)
+    @news_item.user = current_user
     if @news_item.save
       redirect_to @news_item, notice: 'News item was successfully created.'
     else
-      render :new, alert: 'Unable to create news item. Please try again.'
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+  end
+
+  def edit_news_image
   end
 
   def update

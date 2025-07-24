@@ -1,0 +1,24 @@
+<div class="my-container news-item-container">
+  <div class="news-header-grid">
+    <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image" %>
+    <div class="news-title">
+      <h2><%= @news_item.title %></h2>
+      <% if user_signed_in? && current_user == @news_item.user %>
+        <%= link_to  edit_news_item_path(@news_item), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+          <i class="fa-solid fa-pen" id="edit-pen"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="news-info">
+    <%= simple_format(@news_first_p, class: "my-4") %>
+    <h3 class="my-4 center italic"><%= @news_item.slogan %></h3>
+    <%= simple_format(@news_rest_p, class: "my-4") %>
+    <hr>
+    <div class="news-user-info">
+      <p><strong>Published by:  <%= @news_item.user.naam %></strong></p>
+      <p><strong><%= @news_item.created_at.strftime('%-d %B %Y') %></strong></p>
+    </div>
+  </div>
+</div>

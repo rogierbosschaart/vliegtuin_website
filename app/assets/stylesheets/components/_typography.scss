@@ -39,6 +39,14 @@ a {
   text-align: center;
 }
 
+// .bold {
+//   font-weight: 800;
+// }
+
+.italic {
+  font-style: italic;
+}
+
 //////// FLOATING HEADERS ////////
 .floating-header {
   text-shadow: 0 0 8px rgba(31, 99, 244, 0.2),
@@ -52,12 +60,12 @@ a {
   position: absolute;
   top: 40%;
   left: 0;
-  // z-index: 2;
   margin-left: -20px;
+  padding-left: 20px;
 }
 
 .news-header-div {
-  width: 48%;
+  width: 64%;
   position: absolute;
   top: 40%;
   right: 5%;;
@@ -92,7 +100,7 @@ a {
 
 //////// STAMPED HEADERS ////////
 .stamped-header {
-  font-size: 68px;
+  font-size: 4vw;
   font-weight: 200;
   color: white;
 
@@ -107,7 +115,7 @@ a {
 .makers-header {
   transform: rotateZ(-16deg);
   position: absolute;
-  top: 200px;
+  top: 140px;
   left: 40px;
 }
 
@@ -118,11 +126,11 @@ a {
   right: 40px;
 }
 
-.events-page-header {
+.index-header {
   transform: rotateZ(-16deg);
   position: absolute;
-  top: 6%;
-  left: 3%;
+  top: 6vh;
+  left: 4%;
   // z-index: 2;
 }
 
@@ -134,6 +142,7 @@ a {
 
   padding: 4px 20px;
   margin: 20px;
+  max-width: 200px;
 
   background-color: #011f0e;
   border-radius: 500px;
@@ -150,4 +159,28 @@ a {
 
 .event-page-header {
   font-size: 64px;
+}
+
+@media only screen and (max-width: 1130px) {
+  .index-header {
+    left: 0px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .stamped-header {
+    font-size: 6vw;
+    padding: 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 551px) {
+  .stamped-header {
+    font-size: 8vw;
+    padding: 5px 10px;
+  }
+
+  .index-header {
+    left: -10px;
+  }
 }

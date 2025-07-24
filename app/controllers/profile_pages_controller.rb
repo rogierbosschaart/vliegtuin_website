@@ -19,7 +19,7 @@ class ProfilePagesController < ApplicationController
     if @profile_page.save
       redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully created.'
     else
-      redirect_to root_path, notice: 'Unable to create profile page. Please try again.'
+      redirect_to root_path, status: :unprocessable_entity
     end
   end
 

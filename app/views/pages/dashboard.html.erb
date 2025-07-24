@@ -1,11 +1,22 @@
 <section>
   <div class="my-container">
-    <h1><%= current_user.naam %></h1>
+    <h2>Welkom <%= current_user.naam %></h2>
     <% if current_user.profile_pages.any? %>
       <%= link_to "Mijn Profiel", profile_page_path(current_user.profile_pages.first) %>
     <% else %>
-      <%= link_to "Maak een profiel", new_profile_page_path %>
+      <%= link_to "Maak een profiel", new_profile_page_path, class: "new-profile" %>
     <% end %>
+
+    <h2>Mijn Nieuws</h2>
+    <% @my_news.each do |news| %>
+      <%= link_to news_item_path(news) do %>
+        <div class="news-item">
+          <h3><%= news.title %></h3>
+          <p><%= news.created_at.strftime('%-d %B %Y') %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to "Nieuw item", new_news_item_path %>
 
 
     <% if current_user.admin? %>

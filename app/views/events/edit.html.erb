@@ -1,7 +1,9 @@
 <%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
   <div class="modal-overlay" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
+      <h2>Edit Evenement</h2>
       <%= simple_form_for [@event] do |f| %>
+        <%= f.input :card_image, as: :file, label: "BANNER" %>
         <%= f.input :title, label: "TITEL" %>
         <%= f.input :date, label: "DATUM" %>
         <%= f.input :start_time, label: "BEGINT OM" %>

@@ -1,6 +1,6 @@
-<section class="events-page">
-  <h2 class="stamped-header events-page-header">Evenementen</h2>
-  <div class="events-page-container">
+<section class="index-section">
+  <h2 class="stamped-header index-header">Evenementen</h2>
+  <div class="my-container" id="events-page-container">
     <% @events.each do |event| %>
       <%= link_to event_path(event) do %>
         <div class="event-page-card">

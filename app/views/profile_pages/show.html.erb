@@ -1,18 +1,19 @@
 <section class="profile-page">
-  <% if user_signed_in? && (current_user ==  @profile_page.user || current_user.super_admin? ) %>
-    <div class="set-active">
-      <%= link_to profile_page_path(@profile_page, active: !@profile_page.active),
-                        data: { turbo_method: :patch } do %>
-        <input type="checkbox" class="toggle-switch" id="active-toggle" <%= 'checked' if @profile_page.active %> />
-        <label for="active-toggle" class="toggle-label"></label>
-      <% end %>
+  <div class="my-profile-container">
+    <% if user_signed_in? && (current_user ==  @profile_page.user || current_user.super_admin? ) %>
+      <div class="set-active">
+        <%= link_to profile_page_path(@profile_page, active: !@profile_page.active),
+                          data: { turbo_method: :patch } do %>
+          <input type="checkbox" class="toggle-switch" id="active-toggle" <%= 'checked' if @profile_page.active %> />
+          <label for="active-toggle" class="toggle-label"></label>
+        <% end %>
+      </div>
+    <% end %>
+    <%= render 'banner', profile_page: @profile_page %>
+    <div class="profile-content">
+      <%= render 'bio', profile_page: @profile_page %>
+      <%= render 'contact_info', profile_page: @profile_page %>
     </div>
-  <% end %>
-  <%= render 'banner', profile_page: @profile_page %>
-  <div class="profile-content">
-    <%= render 'bio', profile_page: @profile_page %>
-    <%= render 'contact_info', profile_page: @profile_page %>
+    <%= render 'images', profile_page: @profile_page %>
   </div>
-
-  <%= render 'images', profile_page: @profile_page %>
 </section>

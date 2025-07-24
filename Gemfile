@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3"
 gem "devise"
 gem "devise_invitable"
+gem "active_storage_validations"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
