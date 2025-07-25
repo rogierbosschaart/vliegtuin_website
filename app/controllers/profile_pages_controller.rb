@@ -1,5 +1,5 @@
 class ProfilePagesController < ApplicationController
-  before_action :find_profile_page, only: [:show, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_image, :update, :destroy, :add_images, :edit_images]
+  before_action :find_profile_page, only: [:show, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_image, :update, :destroy, :destroy_image, :add_images, :edit_images]
 
   def index
     @profile_pages = ProfilePage.where(active: true).order(updated_at: :desc)
@@ -43,7 +43,7 @@ class ProfilePagesController < ApplicationController
   end
 
   def destroy_image
-    @profile_page = ProfilePage.find(params[:profile_page_id])
+    # @profile_page = ProfilePage.find(params[:profile_page_id])
     @image = @profile_page.images.find(params[:id])
     if @image.purge_later
       redirect_to @profile_page, notice: "Image was successfully deleted."
@@ -92,7 +92,6 @@ class ProfilePagesController < ApplicationController
   end
 
   def destroy
-    @profile_page = ProfilePage.find(params[:id])
     @profile_page.destroy
     redirect_to root_path, notice: 'Profile page was successfully deleted.'
   end
@@ -117,6 +116,6 @@ class ProfilePagesController < ApplicationController
   end
 
   def find_profile_page
-    @profile_page = ProfilePage.find(params[:id] || params[:profile_page_id])
+    @profile_page = ProfilePage.friendly.find(params[:id] || params[:profile_page_id])
   end
 end
