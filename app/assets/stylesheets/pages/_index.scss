@@ -1,9 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "profile";
-@import "events";
-@import "event_show";
 @import "about";
-@import "news_show";
-@import "news_index";
+@import "dashboard";
+@import "events_index";
+@import "event_show";
 @import "profiles_index";
+@import "profile_show";
+@import "news_index";
+@import "news_show";
+@import "sign_in"

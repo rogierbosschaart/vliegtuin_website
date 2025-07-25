@@ -36,6 +36,14 @@ class NewsItemsController < ApplicationController
   def edit_news_image
   end
 
+  def toggle_selected
+    @all_news = NewsItem.all
+    @all_news.update_all(selected: false)
+    @news = NewsItem.find(params[:id])
+    @news.toggle!(:selected)
+    redirect_to dashboard_path, notice: "#{@news.title} has been selected for the home page."
+  end
+
   def update
     if @news_item.update(news_item_params)
       respond_to do |format|

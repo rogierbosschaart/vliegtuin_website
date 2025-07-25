@@ -37,13 +37,10 @@
 .my-nav {
   margin: 0 12px;
   padding: 4px 20px;
-
   font-size: 14px;
   font-weight: 200;
   color: white;
-
-  display: inline-block; /* Add this line */
-
+  display: inline-block;
   background-color: #011f0e;
   border-radius: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -53,4 +50,35 @@
 .my-nav:hover {
   transform: scale(1.05);
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  right: 50%;
+  transform: translateX(35%);
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin-top: 10px;
+  }
+}
+
+#dropdown {
+    color: #011f0e;
+    background-color: #7adf89;
+    border: 2px solid #011f0e;
+    font-weight: 600;
+  }
+
+.navbar-dropdown:hover .dropdown-content {
+  display: block;
 }

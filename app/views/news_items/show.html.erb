@@ -1,6 +1,10 @@
 <div class="my-container news-item-container">
   <div class="news-header-grid">
-    <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image" %>
+    <% if @news_item.news_item_image.presence %>
+      <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image" %>
+    <% else %>
+      <p class="news-show-image">Upload-image</p>
+    <% end %>
     <div class="news-title">
       <h2><%= @news_item.title %></h2>
       <% if user_signed_in? && current_user == @news_item.user %>

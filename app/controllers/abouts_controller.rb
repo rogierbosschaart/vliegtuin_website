@@ -1,5 +1,8 @@
 class AboutsController < ApplicationController
-  before_action :find_about, only: [:edit_slogan, :edit_info, :edit_about_image, :edit_about_home_image, :edit_about_second_image, :update]
+  before_action :find_about, only: [:edit, :edit_slogan, :edit_info, :edit_about_image, :edit_about_home_image, :edit_about_second_image, :update]
+
+  def edit
+  end
 
   def edit_slogan
   end

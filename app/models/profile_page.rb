@@ -5,6 +5,8 @@ class ProfilePage < ApplicationRecord
   has_many_attached :images, dependent: :destroy
 
   validates :user, presence: true
+  validates :naam, presence: true
+  validates :beroep, presence: true
   validates :banner_image, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
-  validates :profile_image, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
+  validates :profile_image, presence: true, size: { less_than: 2.megabytes, message: 'must be less than 2MB' }
 end

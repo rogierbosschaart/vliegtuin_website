@@ -1,11 +1,18 @@
-// section.profile-page {
-//   padding: 20px 10%;
-// }
-
 .my-profile-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.set-active {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 10px;
+
+  p {
+    margin: 0 10px;
+  }
 }
 
 .profile-banner {
@@ -54,6 +61,7 @@
 .profiles-images-container {
   columns: 300px;
   column-gap: 4px;
+  margin-bottom: 40px;
 }
 
 .profiles-images {
@@ -88,23 +96,6 @@
     color: white;
   }
 }
-
-// #profile-images-edit {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   z-index: 10000;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   color: white;
-//   padding: 5px;
-//   border-radius: 2px;
-//   cursor: pointer;
-
-//   &:hover {
-//     background-color: rgba(0, 0, 0, 0.7);
-//   }
-// }
-
 
 #appear-profile-image {
   animation-name: profile-image-appear;

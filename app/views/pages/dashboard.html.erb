@@ -1,33 +1,132 @@
-<section>
-  <div class="my-container">
-    <h2>Welkom <%= current_user.naam %></h2>
-    <% if current_user.profile_pages.any? %>
-      <%= link_to "Mijn Profiel", profile_page_path(current_user.profile_pages.first) %>
-    <% else %>
-      <%= link_to "Maak een profiel", new_profile_page_path, class: "new-profile" %>
-    <% end %>
-
-    <h2>Mijn Nieuws</h2>
-    <% @my_news.each do |news| %>
-      <%= link_to news_item_path(news) do %>
-        <div class="news-item">
-          <h3><%= news.title %></h3>
-          <p><%= news.created_at.strftime('%-d %B %Y') %></p>
-        </div>
+<section class="dashboard-section">
+  <div class="my-dashboard-container">
+    <h2 class="center">Welkom <%= current_user.naam %></h2>
+    <hr>
+    <div class="my-section">
+      <h3 class="dashboard-header">Mijn Pagina</h3>
+      <% if current_user.profile_pages.any? %>
+        <%= link_to profile_page_path(current_user.profile_pages.first) do %>
+          <div class="profile-card my-profile-card">
+            <% if @my_profile_page.profile_image.presence %>
+              <%= cl_image_tag @my_profile_page.profile_image.key, class: "profile-image" %>
+            <% end %>
+            <div class="profile-info">
+              <h3><%= @my_profile_page.naam %></h3>
+              <p><%= @my_profile_page.beroep %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="bold">Maak een profiel</p>
+        <%= link_to new_profile_page_path do %>
+          <div class="new-card">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= link_to "Nieuw item", new_news_item_path %>
+    </div>
+    <hr>
+    <div class="my-section">
+      <h3 class="dashboard-header">Mijn Nieuws</h3>
+      <% if @my_news.any? %>
+        <% @my_news.each do |news| %>
+          <%= link_to news_item_path(news) do %>
+            <div class="news-item">
+              <% if news.news_item_image.presence %>
+                <%= cl_image_tag news.news_item_image.key, class: "my-news-image" %>
+              <% else %>
+                <p>Upload-image</p>
+              <% end %>
+              <div>
+                <h3><%= news.title %></h3>
+                <p><%= news.created_at.strftime('%-d %B %Y') %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to new_news_item_path do %>
+          <div class="new-news">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="bold">Deel jou nieuws!</p>
+        <%= link_to new_news_item_path do %>
+          <div class="new-card">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <hr>
+    <div class="my-section">
+      <h3 class="dashboard-header">Mijn Profiel</h3>
+      <%= render 'users/edit' %>
+    </div>
+  </div>
 
-
-    <% if current_user.admin? %>
-      <div class="mt-5">
-        <h2>Invite a New User</h2>
-        <p>Enter the email address of the user you would like to invite. They will receive an email with instructions on how to set up their account.</p>
-        <%= simple_form_for :user, url: send_user_invitation_path do |f| %>
-          <%= f.input :email, required: true, placeholder: "new.user@example.com" %>
-          <%= f.button :submit, "Send Invitation" %>
+  <% if current_user.admin? %>
+    <div class="my-dashboard-container">
+      <h2 class="center">Admin</h2>
+      <hr>
+      <div class="my-section">
+        <h3 class="dashboard-header">Selecteer een nieuwsbericht voor de HomePage</h3>
+        <% @news.each do |news| %>
+          <div class="user-item">
+            <p><%= news.title %></p>
+            <%= simple_form_for news,
+                                    url: toggle_selected_news_item_path(news),
+                                    method: :patch,
+                                    html: { data: { controller: "toggle-submit" } } do |f| %>
+                  <div>
+                    <%= f.check_box :selected, data: { action: "change->toggle-submit#submit" } %>
+                    <%= f.label :geselecteerd %>
+                  </div>
+                <% end %>
+          </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
+      <hr>
+      <div class="my-section">
+        <h3 class="dashboard-header">Bewerk Over Ons</h3>
+        <div class="info-box">
+          <%= render 'abouts/edit' %>
+        </div>
+      </div>
+      <hr>
+      <div class="my-section">
+        <h3 class="dashboard-header">Gebruikersbeheer</h3>
+        <div class="user-list">
+          <% @users.each do |user| %>
+            <div class="user-item">
+              <p><%= user.naam %></p>
+              <p class="email"><%= user.email %></p>
+              <% unless user.super_admin? || user == current_user %>
+                <%= simple_form_for user,
+                                    url: toggle_admin_user_path(user),
+                                    method: :patch,
+                                    html: { data: { controller: "toggle-submit" } } do |f| %>
+                  <div>
+                    <%= f.check_box :admin, data: { action: "change->toggle-submit#submit" } %>
+                    <%= f.label :admin %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="my-section">
+        <h3 class="dashboard-header">Nieuwe gebruikers</h3>
+        <p>Nodig hier nieuwe gebruikers uit. Ze ontvangen een email met instructies om een nieuw profiel aan te maken.</p>
+        <div class="info-box">
+          <%= simple_form_for :user, url: send_user_invitation_path do |f| %>
+            <%= f.input :email, required: true, placeholder: "nieuwe.gebruiker@voorbeeld.com" %>
+            <%= f.button :submit, "Stuur uitnodiging", class: "btn btn-outline-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </section>

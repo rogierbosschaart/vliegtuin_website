@@ -6,6 +6,10 @@ class ProfilePagesController < ApplicationController
   end
 
   def show
+    if @profile_page.info.blank? || @profile_page.banner_image.blank?
+      @profile_page.active = false
+      @profile_page.save
+    end
   end
 
   def new
@@ -19,7 +23,7 @@ class ProfilePagesController < ApplicationController
     if @profile_page.save
       redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully created.'
     else
-      redirect_to root_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

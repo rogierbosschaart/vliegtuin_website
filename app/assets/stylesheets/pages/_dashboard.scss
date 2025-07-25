@@ -1,0 +1,115 @@
+.dashboard-section {
+  padding: 20px;
+}
+
+.my-dashboard-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.my-section {
+  margin: 30px 40px;
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.new-card {
+  height: 200px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 40px;
+  }
+}
+
+.new-card:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.my-profile-card {
+  width: 200px;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.news-item {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;;
+
+  .my-news-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 2px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+}
+
+.new-news {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+
+  i {
+    font-size: 24px;
+    color: black;
+  }
+}
+
+.news-item:hover, .new-news:hover {
+  box-shadow: 6px 6px 8px rgba(0, 10, 2, 0.1),
+              -2px -2px 8px rgba(235, 254, 238, 0.2);
+  transform: scale(1.02);
+}
+
+.new-news:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+.user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+  padding: 6px;
+}
+
+.user-item p {
+  margin: 0 20px 0 0;
+}
+
+.email {
+  flex-grow: 1;
+}
+
+.info-box {
+  margin: 20px;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+

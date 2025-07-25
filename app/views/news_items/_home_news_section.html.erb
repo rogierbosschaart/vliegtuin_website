@@ -13,7 +13,7 @@
           <p>Upload een foto</p>
         </div>
       <% end %>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.admin %>
         <%= link_to  edit_news_image_news_item_path(@news), data: { turbo_frame: "modal" }, class: "image-edit" do %>
           <i class="fa-solid fa-pen" id="edit-pen"></i>
         <% end %>
