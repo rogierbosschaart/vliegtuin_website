@@ -8,18 +8,13 @@
 }
 ///////////////////
 
-// .medium-light-background {
-//   // margin-top: 92vh;
-//   // background-image: linear-gradient(10deg, #86bb8c, #a0d6a6);
-// }
-
 // About section //
 .about-section {
-  background-color: #a0d6a6;
+  // background-color: #a0d6a6;
   background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  // background-image: linear-gradient(10deg, #86bb8c, #a0d6a6);
-  padding: 100px 20px 140px 20px;
-  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
+  // padding: 100px 20px 140px 20px;
+  padding: 60px 20px 120px 20px;
+  // clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
 }
 
 .about-container {
@@ -49,17 +44,17 @@
 // Events section //
 .events-section {
   clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
-  padding: 200px 20px 140px 20px;
+  // padding: 200px 20px 140px 20px;
+  padding: 200px 20px 120px 20px;
   margin-top: -5%;
   margin-bottom: -7%;
-  background-color: #22492A;
-  background-image: radial-gradient(closest-side, rgba(64, 106, 255, 0.1), rgba(255, 255, 255, 0));
+  // background-color: #22492A;
+  // background-image: radial-gradient(closest-side, rgba(64, 106, 255, 0.1), rgba(255, 255, 255, 0));
   position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: start;
-
 }
 
 .event-card {
@@ -107,11 +102,11 @@
 ///////////////////////////
 // News section //
 .news-section {
-  clip-path: polygon(0 0, 100% 10%, 100% 92%, 0% 100%);
-  background-color: #a0d6a6;
+  // clip-path: polygon(0 0, 100% 10%, 100% 92%, 0% 100%);
+  // background-color: #a0d6a6;
   background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  // background-image: linear-gradient(10deg, #86bb8c, #a0d6a6);
-  padding: 180px 20px 40px 20px;
+  // padding: 180px 20px 40px 20px;
+  padding: 200px 20px 120px 20px;
 }
 
 .news-container {
@@ -141,27 +136,20 @@
 
 // Profiles section //
 .profiles-section {
-  // background-color: #84CEBC;
+  // padding: 280px 20px 140px 20px;
   padding: 200px 20px 140px 20px;
-  background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  // background-image: linear-gradient(350deg, rgba(1,31,14, 1.0), rgba(1,31,14, 1.0));
-  // clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
-  // margin-top: -5%;
+  // background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
   position: relative;
-  // z-index: 1;
 }
 
 .profiles-container {
   columns: 260px;
-  column-gap: 12px;
-
-  // margin-top: 120px;
-  // padding-top: 160px;
+  column-gap: 6px;
 }
 
 .profile-card {
   max-width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   border-radius: 2px;
   position: relative;
 }

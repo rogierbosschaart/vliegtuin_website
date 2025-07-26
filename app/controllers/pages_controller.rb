@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @about = About.first
-    @events = Event.where("date >= ?", Date.today).order(date: :asc).first(3)
+    @events = Event.first(3)
     @profile_pages = ProfilePage.where(active: true).order(updated_at: :desc)
     @news = NewsItem.find_by(selected: true)
   end

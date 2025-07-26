@@ -2,9 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :edit_banner]
 
   def index
-    @events = Event.all.order(date: :asc, start_time: :asc)
-    @upcoming_events = @events.select { |event| event.date >= Date.today }
-    @past_events = @events.select { |event| event.date < Date.today }
+    @events_by_year = Event.all.order(date: :desc).group_by { |event| event.date.year }
   end
 
   def show

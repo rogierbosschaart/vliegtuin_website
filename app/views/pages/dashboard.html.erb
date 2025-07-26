@@ -18,7 +18,7 @@
         <% end %>
       <% else %>
         <p class="bold">Maak een profiel</p>
-        <%= link_to new_profile_page_path do %>
+        <%= link_to new_profile_page_path, data: { turbo_frame: "modal" } do %>
           <div class="new-card">
             <i class="fa-solid fa-plus"></i>
           </div>
@@ -44,14 +44,14 @@
             </div>
           <% end %>
         <% end %>
-        <%= link_to new_news_item_path do %>
+        <%= link_to new_news_item_path, data: { turbo_frame: "modal" } do %>
           <div class="new-news">
             <i class="fa-solid fa-plus"></i>
           </div>
         <% end %>
       <% else %>
         <p class="bold">Deel jou nieuws!</p>
-        <%= link_to new_news_item_path do %>
+        <%= link_to new_news_item_path, data: { turbo_frame: "modal" } do %>
           <div class="new-card">
             <i class="fa-solid fa-plus"></i>
           </div>
@@ -77,6 +77,7 @@
             <%= simple_form_for news,
                                     url: toggle_selected_news_item_path(news),
                                     method: :patch,
+                                    namespace: "news_toggle_#{news.id}",
                                     html: { data: { controller: "toggle-submit" } } do |f| %>
                   <div>
                     <%= f.check_box :selected, data: { action: "change->toggle-submit#submit" } %>
@@ -105,6 +106,7 @@
                 <%= simple_form_for user,
                                     url: toggle_admin_user_path(user),
                                     method: :patch,
+                                    namespace: "admin_toggle_#{user.id}",
                                     html: { data: { controller: "toggle-submit" } } do |f| %>
                   <div>
                     <%= f.check_box :admin, data: { action: "change->toggle-submit#submit" } %>
@@ -121,7 +123,7 @@
         <h3 class="dashboard-header">Nieuwe gebruikers</h3>
         <p>Nodig hier nieuwe gebruikers uit. Ze ontvangen een email met instructies om een nieuw profiel aan te maken.</p>
         <div class="info-box">
-          <%= simple_form_for :user, url: send_user_invitation_path do |f| %>
+          <%= simple_form_for :user, url: send_user_invitation_path, namespace: "user_invitation" do |f| %>
             <%= f.input :email, required: true, placeholder: "nieuwe.gebruiker@voorbeeld.com" %>
             <%= f.button :submit, "Stuur uitnodiging", class: "btn btn-outline-success" %>
           <% end %>

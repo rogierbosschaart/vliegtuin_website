@@ -1,21 +1,30 @@
-<section class="index-section">
-  <h2 class="stamped-header index-header">Evenementen</h2>
+<section class="events-index-page">
+  <h2 class="stamped-header events-header" id="events-page-header">Evenementen</h2>
   <div class="my-container" id="events-page-container">
-    <% @events.each do |event| %>
-      <%= link_to event_path(event) do %>
-        <div class="event-page-card">
-          <% if event.card_image.present? %>
-            <%= cl_image_tag event.card_image.key, class: "event-page-card-image" %>
-          <% else %>
-            <h1>No Image Yet</h1>
+
+    <% @events_by_year.each do |year, events_for_year| %>
+      <div class="event-year-section">
+        <h3 class="year-header mt-5"><%= year %></h3>
+        <% events_for_year.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="event-card">
+              <% if event.card_image.present? %>
+                <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
+              <% else %>
+                <h1>No Image Yet</h1>
+              <% end %>
+              <div class="event-details">
+                <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
+                <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+              </div>
+            </div>
           <% end %>
-          <div class="event-info">
-            <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-            <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
+
+
+
     <% if user_signed_in? %>
       <%= link_to new_event_path, class: "new-event-button" do %>
         <i class="fa-solid fa-plus"></i>

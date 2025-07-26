@@ -8,3 +8,4 @@ import "bootstrap"
 Turbo.StreamActions.reload = function() {
   window.location.reload()
 };
+
