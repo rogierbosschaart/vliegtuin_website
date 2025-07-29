@@ -1,0 +1,15 @@
+<div class="my-profiles-container profiles-container">
+  <% @profile_pages.each do |profile| %>
+    <%= link_to profile_page_path(profile) do %>
+      <div class="block profile-card">
+        <% if profile.profile_image.presence %>
+          <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+        <% end %>
+        <div class="profile-info">
+          <h3><%= profile.naam %></h3>
+          <p><%= profile.beroep %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

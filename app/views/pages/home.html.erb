@@ -1,6 +1,6 @@
 <div class="appear">
   <section class="banner-section">
-    <%= image_tag "Vliegtuin_logo_2-01.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+    <%= image_tag "Vliegtuin_11.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
   </section>
 
   <div class="medium-light-background">
@@ -23,9 +23,7 @@
                 <% end %>
                 <div class="event-details">
                   <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-                  <div class="date-time">
-                    <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
-                  </div>
+                  <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
                 </div>
               </div>
             <% end %>
@@ -45,21 +43,7 @@
   <% if @profile_pages.any? %>
     <section class="profiles-section">
       <h2 class="stamped-header makers-header">Onze Makers</h2>
-      <div class="my-container profiles-container">
-        <% @profile_pages.each do |profile| %>
-          <%= link_to profile_page_path(profile) do %>
-            <div class="block profile-card">
-              <% if profile.profile_image.presence %>
-                <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
-              <% end %>
-              <div class="profile-info">
-                <h3><%= profile.naam %></h3>
-                <p><%= profile.beroep %></p>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'profile_pages/profiles_masonry_layout' %>
     </section>
   <% end %>
 </div>

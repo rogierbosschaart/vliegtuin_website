@@ -30,6 +30,11 @@
             <span class="my-nav" id="dropdown">Mijn Vliegtuin</span>
             <div class="dropdown-content">
               <ul>
+                <% if current_user.profile_page.presence %>
+                  <li>
+                    <%= link_to "Mijn profiel", profile_page_path(current_user.profile_page), class: "my-nav", id: "dropdown"  %>
+                  </li>
+                <% end %>
                 <li>
                   <%= link_to "Dashboard", dashboard_path, class: "my-nav", id: "dropdown"  %>
                 </li>

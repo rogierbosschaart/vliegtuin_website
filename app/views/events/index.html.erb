@@ -7,7 +7,7 @@
         <h3 class="year-header mt-5"><%= year %></h3>
         <% events_for_year.each do |event| %>
           <%= link_to event_path(event) do %>
-            <div class="event-card">
+            <div class="block event-card">
               <% if event.card_image.present? %>
                 <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
               <% else %>
@@ -15,7 +15,7 @@
               <% end %>
               <div class="event-details">
                 <h3><%= event.title %> <%= event.date.strftime('%Y') %></h3>
-                <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
+                <p><%= event.date.strftime('%-d %B') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
               </div>
             </div>
           <% end %>

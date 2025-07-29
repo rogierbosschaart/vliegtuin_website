@@ -3,7 +3,7 @@
     <div class="block profiles-images">
       <%= cl_image_tag image.key %>
       <% if user_signed_in? && current_user == profile_page.user %>
-        <%= link_to profile_page_destroy_image_path(profile_page, image),
+        <%= link_to profile_page_destroy_image_path(profile_page, image_id: image.id),
                         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "image-edit" do %>
           <i class="fa-solid fa-trash" id="edit-pen"></i>
         <% end %>

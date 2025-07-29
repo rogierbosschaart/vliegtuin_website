@@ -1,6 +1,6 @@
-.about-page {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(160, 214, 166, 0.3));
-}
+// .about-page {
+//   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(160, 214, 166, 0.3));
+// }
 
 .about-sections {
   min-height: 100%;
@@ -74,5 +74,22 @@
 .about-second-image-container {
   height: 70vh;
   aspect-ratio: 3 / 2;
+  position: relative;
+}
+
+.third-slogan-section {
+  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
+  padding: 20px 10% 200px 10%;
+  margin: 100px auto 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.about-third-image-container {
+  height: 70vh;
+  aspect-ratio: 5 / 4;
   position: relative;
 }

@@ -4,8 +4,8 @@
     <hr>
     <div class="my-section">
       <h3 class="dashboard-header">Mijn Pagina</h3>
-      <% if current_user.profile_pages.any? %>
-        <%= link_to profile_page_path(current_user.profile_pages.first) do %>
+      <% if current_user.profile_page.presence %>
+        <%= link_to profile_page_path(current_user.profile_page) do %>
           <div class="profile-card my-profile-card">
             <% if @my_profile_page.profile_image.presence %>
               <%= cl_image_tag @my_profile_page.profile_image.key, class: "profile-image" %>
@@ -16,6 +16,10 @@
             </div>
           </div>
         <% end %>
+        <%= link_to "Verwijder Profiel",
+                    profile_page_path(current_user.profile_page),
+                    data: { turbo_method: :delete, turbo_confirm: "Weet je het zeker? Deze actie kan niet ongedaan worden gemaakt." },
+                    class: "btn btn-danger mt-2" %>
       <% else %>
         <p class="bold">Maak een profiel</p>
         <%= link_to new_profile_page_path, data: { turbo_frame: "modal" } do %>
@@ -81,7 +85,7 @@
                                     html: { data: { controller: "toggle-submit" } } do |f| %>
                   <div>
                     <%= f.check_box :selected, data: { action: "change->toggle-submit#submit" } %>
-                    <%= f.label :geselecteerd %>
+                    <%= f.label :selecteer %>
                   </div>
                 <% end %>
           </div>

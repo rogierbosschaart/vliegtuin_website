@@ -96,6 +96,15 @@ a {
   bottom: 30%;
   left: 18%;
 }
+
+.about-third-slogan {
+  font-size: 64px;
+  text-align: end;
+  width: 48%;
+  position: absolute;
+  bottom: 30%;
+  right: 20%;
+}
 //////////////////////////////////////////////
 
 //////// STAMPED HEADERS ////////
@@ -122,7 +131,7 @@ a {
 .events-header {
   transform: rotateZ(16deg);
   position: absolute;
-  top: 180px;
+  top: 160px;
   right: 40px;
 }
 

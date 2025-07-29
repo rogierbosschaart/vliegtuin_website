@@ -1,16 +1,4 @@
 <section class="index-section">
   <h2 class="stamped-header index-header">Onze Makers</h2>
-  <div class="my-container profiles-page-container">
-    <% @profile_pages.each do |profile| %>
-      <%= link_to profile_page_path(profile) do %>
-        <div class="block profile-card">
-          <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
-          <div class="profile-info">
-            <h3><%= profile.naam %></h3>
-            <p><%= profile.beroep %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'profile_pages/profiles_masonry_layout' %>
 </section>

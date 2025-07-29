@@ -3,36 +3,3 @@
   position: relative;
   padding: 60px 0;
 }
-
-.profiles-page-container {
-  columns: 260px;
-  column-gap: 6px;
-}
-
-@media only screen and (max-width: 551px) {
-  .profiles-page-container {
-    columns: 200px;
-  }
-
-  .profile-info h3 {
-    font-size: 22px;
-  }
-
-  .profile-info p {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 431px) {
-  .profiles-page-container {
-    columns: 140px;
-  }
-
-  .profile-info h3 {
-    font-size: 20px;
-  }
-
-  .profile-info p {
-    font-size: 14px;
-  }
-}

@@ -51,10 +51,22 @@
     </div>
   </section>
 
-  <section>
-    <div class="my-container">
-      <h2><%= @news.title %></h3>
-      <p><%= @news.info %></p>
+  <section class="about-sections  third-slogan-section">
+    <h2 class="floating-header about-third-slogan"><%= @about.third_slogan %></h2>
+    <div class="block about-third-image-container">
+      <% if @about.about_third_image.presence %>
+        <%= cl_image_tag @about.about_third_image.key, class: "about-image" %>
+      <% else %>
+        <div class="about-image-placeholder">
+          <h2>Over ons Image</h2>
+          <p>Upload een foto</p>
+        </div>
+      <% end %>
+      <% if user_signed_in? && current_user.admin %>
+        <%= link_to edit_about_third_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+          <i class="fa-solid fa-pen" id="edit-pen"></i>
+        <% end %>
+      <% end %>
     </div>
   </section>
 </div>

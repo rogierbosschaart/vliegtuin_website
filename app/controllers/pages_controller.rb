@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @my_profile_page = current_user.profile_pages.first if user_signed_in?
+    @my_profile_page = current_user.profile_page if user_signed_in?
     @my_news = current_user.news_items
     @my_events = Event.all if user_signed_in? && current_user.admin?
     @news = NewsItem.all.order(created_at: :desc)

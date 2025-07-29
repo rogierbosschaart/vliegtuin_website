@@ -2,7 +2,7 @@
 // Banner section //
 .banner-section {
   width: 100vw;
-  background-image: radial-gradient(closest-side, rgb(240, 255, 142), rgba(255,255,255, 0.0));
+  background-image: radial-gradient(closest-side, rgba(240, 255, 142, 0.2), rgba(255,255,255, 0.0));
   align-content: center;
   justify-items: center;
 }
@@ -12,8 +12,7 @@
 .about-section {
   // background-color: #a0d6a6;
   background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  // padding: 100px 20px 140px 20px;
-  padding: 60px 20px 120px 20px;
+  padding: 60px 20px 100px 20px;
   // clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
 }
 
@@ -44,8 +43,7 @@
 // Events section //
 .events-section {
   clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
-  // padding: 200px 20px 140px 20px;
-  padding: 200px 20px 120px 20px;
+  padding: 160px 20px 100px 20px;
   margin-top: -5%;
   margin-bottom: -7%;
   // background-color: #22492A;
@@ -57,57 +55,16 @@
   align-items: start;
 }
 
-.event-card {
-  height: 180px;
-  width: 100%;
 
-  margin-top: 20px;
-
-  border-radius: 2px;
-  position: relative;
-  transition: 0.2s;
-}
-
-.event-card:hover {
-  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.6),
-              -1px -1px 8px rgba(192, 195, 175, 0.1),
-              0 0 2px rgba(255, 255, 1, 0.2);
-  transform: scale(1.01);
-}
-
-.event-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-.event-details {
-  position: absolute;
-  bottom: 2%;
-  left: 2%;
-  padding: 1.5%;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  h3, p {
-    color: white;
-  }
-
-  p {
-    margin: 0;
-  }
-}
 ///////////////////////////
 // News section //
 .news-section {
   // clip-path: polygon(0 0, 100% 10%, 100% 92%, 0% 100%);
   // background-color: #a0d6a6;
   background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  // padding: 180px 20px 40px 20px;
-  padding: 200px 20px 120px 20px;
+  padding: 160px 20px 100px 20px;
 }
+
 
 .news-container {
   display: flex;
@@ -133,55 +90,8 @@
   }
 }
 
-
 // Profiles section //
 .profiles-section {
-  // padding: 280px 20px 140px 20px;
-  padding: 200px 20px 140px 20px;
-  // background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  padding: 160px 20px 140px 20px;
   position: relative;
-}
-
-.profiles-container {
-  columns: 260px;
-  column-gap: 6px;
-}
-
-.profile-card {
-  max-width: 100%;
-  margin-bottom: 6px;
-  border-radius: 2px;
-  position: relative;
-}
-
-.profile-card:hover {
-  box-shadow: 6px 6px 8px rgba(0, 10, 2, 0.1),
-              -2px -2px 8px rgba(235, 254, 238, 0.2);
-  transform: scale(1.02);
-}
-
-.profile-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-
-  padding: 4%;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  h3, p {
-    color: white;
-  }
-
-  p {
-    margin: 0;
-  }
-}
-
-.profile-image {
-  width: 100%;
-  border-radius: 2px;
-  opacity: 0.8;
-
 }

@@ -43,8 +43,8 @@ class ProfilePagesController < ApplicationController
   end
 
   def destroy_image
-    # @profile_page = ProfilePage.find(params[:profile_page_id])
-    @image = @profile_page.images.find(params[:id])
+    # @profile_page = ProfilePage.friendly.find(params[:profile_page_id])
+    @image = @profile_page.images.find(params[:image_id])
     if @image.purge_later
       redirect_to @profile_page, notice: "Image was successfully deleted."
     else
@@ -93,7 +93,7 @@ class ProfilePagesController < ApplicationController
 
   def destroy
     @profile_page.destroy
-    redirect_to root_path, notice: 'Profile page was successfully deleted.'
+    redirect_to dashboard_path(current_user), notice: 'Profile page was successfully deleted.'
   end
 
   private

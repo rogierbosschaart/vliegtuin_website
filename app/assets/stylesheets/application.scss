@@ -16,15 +16,23 @@ body {
   position: relative;
   min-height: 100vh;
   width: 100vw;
-  background-color: #CBE6EE;
-  // background-color: #CAEDE6;
-  background-image: linear-gradient(to bottom, #CAEDE6, #caedd6);
+  // background-color: #CBE6EE;
+  background-color: #CAEDE6;
+  // background-image: linear-gradient(to bottom, #CAEDE6, #caedd6);
   display: flex;
   flex-direction: column;
 }
 
 main {
   flex-grow: 1;
+}
+
+.my-container {
+  max-width: 900px;
+  // max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
 }
 
 .index-section {
@@ -64,13 +72,7 @@ main {
 }
 ///////////////////////////////////////
 
-.my-container {
-  max-width: 1000px;
-  // max-width: 1320px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 10px;
-}
+
 
 
 // SCROLL ANIMATION //

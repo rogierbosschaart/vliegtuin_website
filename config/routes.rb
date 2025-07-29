@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get :edit_about_image
       get :edit_about_home_image
       get :edit_about_second_image
+      get :edit_about_third_image
     end
   end
   resources :news_items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
