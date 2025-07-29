@@ -52,6 +52,13 @@
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
 }
 
+.active-nav-link {
+  color: #011f0e;
+  background-color: #7adf89;
+  border: 2px solid #011f0e;
+  font-weight: 600;
+}
+
 .navbar-dropdown {
   position: relative;
 }
