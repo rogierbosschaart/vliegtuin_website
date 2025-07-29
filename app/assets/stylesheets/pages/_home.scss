@@ -16,6 +16,10 @@
   // clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
 }
 
+.relative {
+  position: relative;
+}
+
 .about-background-header {
   position: absolute;
   top: 20%;
@@ -27,6 +31,25 @@
   h2 {
     font-size: 200px;
     color: white;
+  }
+}
+
+.parallax-header {
+  animation-name: header-parallax;
+  animation: parallax linear;
+  animation-timeline: view();
+  animation-fill-mode: both;
+  animation-range: entry 0 exit 100%;
+}
+
+@keyframes header-parallax {
+  from {
+    transform: translateX(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateX(0px);
+    transform: translateY(400px);
   }
 }
 

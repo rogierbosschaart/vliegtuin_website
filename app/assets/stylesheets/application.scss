@@ -20,26 +20,6 @@ body {
   flex-direction: column;
 }
 
-// .my-background {
-//   position: relative;
-//   z-index: 1;
-// }
-
-// .my-background::before {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-
-//   background-image: image-url('achtergrond-v1.png');
-//   background-repeat: repeat;
-//   background-size: 100vw auto;
-
-//   opacity: 0.2;
-//   z-index: -1;
-// }
 
 main {
   flex-grow: 1;
@@ -47,7 +27,6 @@ main {
 
 .my-container {
   max-width: 900px;
-  // max-width: 1320px;
   margin: 0 auto;
   width: 100%;
   padding: 0 10px;
