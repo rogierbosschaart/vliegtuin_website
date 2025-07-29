@@ -9,7 +9,7 @@
           <%= link_to event_path(event) do %>
             <div class="block event-card">
               <% if event.card_image.present? %>
-                <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
+                <%= cl_image_tag event.card_image.key, class: "event-card-image", alt: "#{event.title}" %>
               <% else %>
                 <h1>No Image Yet</h1>
               <% end %>

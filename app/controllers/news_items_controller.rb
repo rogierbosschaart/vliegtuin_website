@@ -2,7 +2,8 @@ class NewsItemsController < ApplicationController
   before_action :find_news_item, only: [:show, :edit, :edit_news_image, :update, :destroy]
 
   def index
-    @news_items = NewsItem.all.order(created_at: :desc)
+    @selected_news = NewsItem.find_by(selected: true)
+    @news_items = NewsItem.where.not(id: @selected_news&.id).order(created_at: :desc)
   end
 
   def show

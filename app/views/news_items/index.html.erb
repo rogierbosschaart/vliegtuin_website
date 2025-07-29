@@ -1,18 +1,36 @@
-<div class="my-container">
-  <h2>Nieuws</h2>
-  <div class="news-cards">
-    <% @news_items.each do |item| %>
-      <%= link_to news_item_path(item) do %>
-        <div class="block news-card">
-          <% if item.news_item_image.presence %>
-            <%= cl_image_tag item.news_item_image.key, class: "news-card-image" %>
-          <% end %>
-          <div class="news-card-info">
-            <h3><%= item.title %></h3>
-            <p><%= item.info %></p>
+<div class="overflow-hidden">
+  <div class="my-container">
+    <% if @news_items.any? %>
+      <div class="news-grid">
+        <% if @selected_news.news_item_image.presence %>
+          <%= cl_image_tag @selected_news.news_item_image.key, class: "selected-news-image", alt: "#{@selected_news.title}" %>
+        <% end %>
+        <%= link_to news_item_path(@selected_news) do %>
+          <div class="selected-news-info">
+            <h2><%= @selected_news.title %></h2>
+            <p><strong><%= @selected_news.slogan %></strong></p>
+            <p><%= @selected_news.info %></p>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
+
+    <hr>
+
+    <div class="news-cards">
+      <% @news_items.each do |item| %>
+        <%= link_to news_item_path(item) do %>
+          <div class="news-card">
+            <% if item.news_item_image.presence %>
+              <%= cl_image_tag item.news_item_image.key, class: "news-card-image", alt: "#{item.title}" %>
+            <% end %>
+            <div class="news-card-info">
+              <h3><%= item.title %></h3>
+              <p><%= item.info %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -17,7 +17,7 @@
       </div>
       <div class="block about-home-image-container">
         <% if @news.news_item_image.presence %>
-          <%= cl_image_tag @news.news_item_image.key, class: "about-home-image" %>
+          <%= cl_image_tag @news.news_item_image.key, class: "about-home-image", alt: "#{@news.title}" %>
         <% else %>
           <div class="about-image-placeholder">
             <h2>Nieuws</h2>

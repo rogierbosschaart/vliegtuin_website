@@ -1,6 +1,6 @@
 <div class="appear">
   <section class="banner-section">
-    <%= image_tag "Vliegtuin_11.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
+    <%= image_tag "Vliegtuin_logo.png", alt: "vliegtuin-logo", class: "vliegtuin-logo" %>
   </section>
 
   <div class="medium-light-background">
@@ -17,7 +17,7 @@
             <%= link_to event_path(event) do %>
               <div class="block event-card">
                 <% if event.card_image.present? %>
-                  <%= cl_image_tag event.card_image.key, class: "event-card-image" %>
+                  <%= cl_image_tag event.card_image.key, class: "event-card-image", alt: "#{event.title}" %>
                 <% else %>
                   <h1>No Image Yet</h1>
                 <% end %>

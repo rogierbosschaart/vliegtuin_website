@@ -3,7 +3,7 @@
     <%= link_to profile_page_path(profile) do %>
       <div class="block profile-card">
         <% if profile.profile_image.presence %>
-          <%= cl_image_tag profile.profile_image.key, class: "profile-image" %>
+          <%= cl_image_tag profile.profile_image.key, class: "profile-image", alt: "#{profile.naam}-profielfoto" %>
         <% end %>
         <div class="profile-info">
           <h3><%= profile.naam %></h3>

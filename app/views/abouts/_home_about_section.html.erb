@@ -7,7 +7,7 @@
       <h2 class="floating-header about-header"><%= @about.slogan %></h2>
       <div class="block about-home-image-container">
         <% if @about.about_home_image.presence %>
-          <%= cl_image_tag @about.about_home_image.key, class: "about-home-image" %>
+          <%= cl_image_tag @about.about_home_image.key, class: "about-home-image", alt: "#{@about.slogan}" %>
         <% else %>
           <div class="about-image-placeholder">
             <h2>Over ons Image</h2>

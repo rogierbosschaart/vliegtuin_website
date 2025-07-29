@@ -1,6 +1,6 @@
 <div class="event-banner-container">
   <% if  @event.card_image.presence %>
-    <%= cl_image_tag @event.card_image.key, class: "event-middle-banner"%>
+    <%= cl_image_tag @event.card_image.key, class: "event-middle-banner", alt: "#{@event.title}"%>
   <% else %>
     <div class="banner-placeholder">
       <h2>Banner Image</h2>

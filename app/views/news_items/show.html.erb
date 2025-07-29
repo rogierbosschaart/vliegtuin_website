@@ -1,7 +1,7 @@
 <div class="my-container news-item-container">
   <div class="news-header-grid">
     <% if @news_item.news_item_image.presence %>
-      <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image" %>
+      <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image", alt: "#{@news_item.title}" %>
     <% else %>
       <p class="news-show-image">Upload-image</p>
     <% end %>

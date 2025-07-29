@@ -1,10 +1,13 @@
-<div class="appear about-page">
+<div class="appear">
+  <div class="about-page-first-background-header">
+    <h2><%= @about.slogan %></h2>
+  </div>
   <section class="about-sections about-banner-section">
     <div class="my-container about-banner-container">
       <h2 class="floating-header about-us-header"><%= @about.slogan %></h2>
       <div class="block about-image-container" id="about-second-image-container">
         <% if @about.about_image.presence %>
-          <%= cl_image_tag @about.about_image.key, class: "about-image", id: "appear-image" %>
+          <%= cl_image_tag @about.about_image.key, class: "about-image", id: "appear-image", alt: "#{@about.slogan}" %>
         <% else %>
           <div class="about-image-placeholder">
             <h2>Over ons Image</h2>
@@ -27,10 +30,13 @@
   </section>
 
   <section class="about-sections  second-slogan-section">
+    <div class="about-page-second-background-header">
+      <h2 class="center"><%= @about.second_slogan %></h2>
+    </div>
     <h2 class="floating-header about-second-slogan"><%= @about.second_slogan %></h2>
     <div class="block about-second-image-container">
       <% if @about.about_second_image.presence %>
-        <%= cl_image_tag @about.about_second_image.key, class: "about-image" %>
+        <%= cl_image_tag @about.about_second_image.key, class: "about-image", alt: "#{@about.second_slogan}" %>
       <% else %>
         <div class="about-image-placeholder">
           <h2>Over ons Image</h2>
@@ -52,10 +58,13 @@
   </section>
 
   <section class="about-sections  third-slogan-section">
+    <div class="about-page-third-background-header">
+      <h2><%= @about.third_slogan %></h2>
+    </div>
     <h2 class="floating-header about-third-slogan"><%= @about.third_slogan %></h2>
     <div class="block about-third-image-container">
       <% if @about.about_third_image.presence %>
-        <%= cl_image_tag @about.about_third_image.key, class: "about-image" %>
+        <%= cl_image_tag @about.about_third_image.key, class: "about-image", alt: "#{@about.third_slogan}" %>
       <% else %>
         <div class="about-image-placeholder">
           <h2>Over ons Image</h2>
