@@ -46,6 +46,10 @@
                 <p><%= news.created_at.strftime('%-d %B %Y') %></p>
               </div>
             </div>
+            <%= link_to "Verwijder Nieuws-item",
+                    news_item_path(news),
+                    data: { turbo_method: :delete, turbo_confirm: "Weet je het zeker? Deze actie kan niet ongedaan worden gemaakt." },
+                    class: "btn btn-danger mt-2" %>
           <% end %>
         <% end %>
         <%= link_to new_news_item_path, data: { turbo_frame: "modal" } do %>
@@ -80,6 +84,10 @@
                   <p><%= event.date.strftime('%-d %B %Y') %> - <%= event.start_time.strftime('%H:%M') %> - <%= event.end_time.strftime('%H:%M') %></p>
                 </div>
               </div>
+              <%= link_to "Verwijder Evenement",
+                    event_path(event),
+                    data: { turbo_method: :delete, turbo_confirm: "Weet je het zeker? Deze actie kan niet ongedaan worden gemaakt." },
+                    class: "btn btn-danger mt-2" %>
             <% end %>
           <% end %>
           <%= link_to new_event_path, data: { turbo_frame: "modal" } do %>

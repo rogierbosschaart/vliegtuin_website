@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to root_path, notice: 'Event was successfully created.'
+      redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to root_path, notice: 'Event was successfully deleted.'
+    redirect_to dashboard_path, notice: 'Event was successfully deleted.'
   end
 
   private

@@ -79,7 +79,7 @@
 
 // Events section //
 .events-section {
-  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
+  // clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
   padding: 160px 20px 100px 20px;
   margin-top: -5%;
   margin-bottom: -7%;
@@ -166,4 +166,31 @@
 .profiles-section {
   padding: 120px 20px 140px 20px;
   position: relative;
+}
+
+@media only screen and (max-width: 430px) {
+  .about-background-header {
+    top: 30%;
+
+    h2 {
+      font-size: 52px;
+    }
+  }
+
+  .about-header {
+    font-size: 36px;
+  }
+
+  .events-header {
+    top: 60px;
+    right: 10vw;
+  }
+
+  .about-section {
+    padding: 40px 10px 20px 10px;
+  }
+
+  .events-section {
+    padding: 120px 10px 20px 10px;
+  }
 }

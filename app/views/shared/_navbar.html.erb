@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-md navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "home-avatar" do %>
       <%= image_tag "Vliegtuin.png", class: "home-avatar-image"%>
@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="active">
           <%= link_to "Home", root_path, class: "my-nav #{'active-nav-link' if current_page?(root_path)}" %>

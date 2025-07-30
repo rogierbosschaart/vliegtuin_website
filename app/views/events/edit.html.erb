@@ -2,9 +2,10 @@
   <div class="modal-overlay" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
       <h2>Edit Evenement</h2>
-      <%= simple_form_for [@event] do |f| %>
-        <%= f.input :card_image, as: :file, label: "BANNER" %>
+      <%= simple_form_for [@event], html: { data: { turbo_frame: "_top" } } do |f| %>
         <%= f.input :title, label: "TITEL" %>
+        <%= f.input :card_image, as: :file, label: "BANNER" %>
+        <%= f.hidden_field :form_name, value: 'card_image' %>
         <%= f.input :date, label: "DATUM" %>
         <%= f.input :start_time, label: "BEGINT OM" %>
         <%= f.input :end_time, label: "EINDIGT OM" %>

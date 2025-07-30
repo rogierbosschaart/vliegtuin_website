@@ -59,9 +59,9 @@ class NewsItemsController < ApplicationController
   def destroy
     @news_item = NewsItem.find(params[:id])
     if @news_item.destroy
-      redirect_to news_items_path, notice: 'News item was successfully deleted.'
+      redirect_to dashboard_path, notice: 'News item was successfully deleted.'
     else
-      redirect_to @news_item, alert: 'Unable to delete news item. Please try again.'
+      redirect_to dashboard_path, alert: 'Unable to delete news item. Please try again.'
     end
   end
 
