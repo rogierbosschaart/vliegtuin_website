@@ -1,6 +1,6 @@
 <div class="overflow-hidden">
   <div class="my-container">
-    <% if @news_items.any? %>
+    <% if @selected_news.presence %>
       <div class="news-grid">
         <% if @selected_news.news_item_image.presence %>
           <%= cl_image_tag @selected_news.news_item_image.key, class: "selected-news-image", alt: "#{@selected_news.title}" %>
@@ -13,9 +13,8 @@
           </div>
         <% end %>
       </div>
+      <hr>
     <% end %>
-
-    <hr>
 
     <div class="news-cards">
       <% @news_items.each do |item| %>

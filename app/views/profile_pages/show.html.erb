@@ -1,28 +1,26 @@
-<section class="profile-page">
-  <div class="my-profile-container">
-    <% if user_signed_in? && (current_user ==  @profile_page.user || current_user.super_admin? ) %>
-      <% if @profile_page.banner_image.presence && @profile_page.info.presence %>
-        <div class="set-active">
-          <% if @profile_page.active %>
-            <p class="bold">Je profiel is zichtbaar</p>
-          <% else %>
-            <p class="bold">Je profiel is niet zichtbaar</p>
-          <% end %>
-          <%= link_to profile_page_path(@profile_page, active: !@profile_page.active),
-                            data: { turbo_method: :patch } do %>
-            <input type="checkbox" class="toggle-switch" id="active-toggle" <%= 'checked' if @profile_page.active %> />
-            <label for="active-toggle" class="toggle-label"></label>
-          <% end %>
-        </div>
-      <% else %>
-        <p class="bold">Upload een banner en vul je bio in om je profiel zichtbaar te maken.</p>
-      <% end %>
+<div class="my-profile-container">
+  <% if user_signed_in? && (current_user ==  @profile_page.user || current_user.super_admin? ) %>
+    <% if @profile_page.banner_image.presence && @profile_page.info.presence %>
+      <div class="set-active">
+        <% if @profile_page.active %>
+          <p class="bold">Je profiel is zichtbaar</p>
+        <% else %>
+          <p class="bold">Je profiel is niet zichtbaar</p>
+        <% end %>
+        <%= link_to profile_page_path(@profile_page, active: !@profile_page.active),
+                          data: { turbo_method: :patch } do %>
+          <input type="checkbox" class="toggle-switch" id="active-toggle" <%= 'checked' if @profile_page.active %> />
+          <label for="active-toggle" class="toggle-label"></label>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="bold">Upload een banner en vul je bio in om je profiel zichtbaar te maken.</p>
     <% end %>
-    <%= render 'banner', profile_page: @profile_page %>
-    <div class="profile-content">
-      <%= render 'bio', profile_page: @profile_page %>
-      <%= render 'contact_info', profile_page: @profile_page %>
-    </div>
-    <%= render 'images', profile_page: @profile_page %>
+  <% end %>
+  <%= render 'banner', profile_page: @profile_page %>
+  <div class="profile-content">
+    <%= render 'bio', profile_page: @profile_page %>
+    <%= render 'contact_info', profile_page: @profile_page %>
   </div>
-</section>
+  <%= render 'images', profile_page: @profile_page %>
+</div>

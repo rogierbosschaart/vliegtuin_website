@@ -19,6 +19,25 @@
     <% end %>
   </div>
   <div class="social-icons">
-    <%# ... your social icon links ... %>
+    <% if profile_page.instagram.presence %>
+      <a href='https://www.instagram.com/<%= profile_page.instagram %>' target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    <% end %>
+    <% if profile_page.facebook.presence %>
+      <a href='https://www.facebook.com/<%= profile_page.facebook %>' target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+    <% end %>
+    <% if profile_page.linkedin.presence %>
+      <a href='http://linkedin.com/in/<%= profile_page.linkedin %>' target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    <% end %>
+    <% if profile_page.pinterest.presence %>
+      <a href='http://pinterest.com/<%= profile_page.pinterest %>' target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-pinterest"></i>
+      </a>
+    <% end %>
   </div>
 </div>

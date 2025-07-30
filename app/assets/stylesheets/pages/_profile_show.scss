@@ -56,6 +56,7 @@
 
 .info-text p {
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .profiles-images-container {
@@ -112,5 +113,51 @@
   100% {
     opacity: 1;
     transform: scale(1.0);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .my-profile-container {
+    padding: 0;
+  }
+
+  .profile-content {
+    margin: 0 20px 40px 20px;
+  }
+
+}
+
+@media only screen and (max-width: 750px) {
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 604px) {
+  .profiles-images-container {
+  columns: 240px;
+  column-gap: 4px;
+  margin-bottom: 4px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .my-profile-container {
+    padding: 0;
+  }
+
+  .profile-banner {
+    height: 300px;
+  }
+
+  .profile-content {
+    margin: 0 10px 40px 10px;
+  }
+
+  .profiles-images-container {
+  columns: 1;
+  column-gap: 4px;
+  margin-bottom: 4px;
   }
 }

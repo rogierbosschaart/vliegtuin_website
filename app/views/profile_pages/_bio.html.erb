@@ -3,7 +3,7 @@
     <h2><%= profile_page.naam %></h2>
     <% if user_signed_in? && current_user == profile_page.user %>
       <%= link_to edit_bio_profile_page_path(profile_page), data: { turbo_frame: "modal" } do %>
-        <i class="fa-solid fa-pen mx-5"></i>
+        <i class="fa-solid fa-pen"></i>
       <% end %>
     <% end %>
   </div>

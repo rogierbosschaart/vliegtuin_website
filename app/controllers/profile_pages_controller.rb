@@ -99,6 +99,7 @@ class ProfilePagesController < ApplicationController
   private
   def profile_page_params
     params.require(:profile_page).permit(
+                                :form_name,
                                 :naam,
                                 :beroep,
                                 :info,

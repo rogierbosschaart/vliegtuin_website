@@ -1,7 +1,11 @@
 <%= f.input :email, label: "EMAIL" %>
 <%= f.input :phone_number, label: "TELEFOON" %>
 <%= f.input :website, label: "WEBSITE" %>
-<%= f.input :facebook, label: "FACEBOOK" %>
-<%= f.input :instagram, label: "INSTAGRAM" %>
-<%= f.input :linkedin, label: "LINKEDIN" %>
-<%= f.input :pinterest, label: "PINTEREST" %>
+<p class="mb-1">INSTAGRAM HANDLE</p>
+<div class="form-flex-field"><p>www.instagram.com/</p><%= f.input :instagram, label: false %></div>
+<p class="mb-1">FACEBOOK HANDLE</p>
+<div class="form-flex-field"><p>www.facebook.com/</p><%= f.input :facebook, label: false %></div>
+<p class="mb-1">LINKEDIN HANDLE</p>
+<div class="form-flex-field"><p>www.linkedin.com/in/</p><%= f.input :linkedin, label: false %></div>
+<p class="mb-1">PINTEREST HANDLE</p>
+<div class="form-flex-field"><p>www.pinterest.com/</p><%= f.input :pinterest, label: false %></div>

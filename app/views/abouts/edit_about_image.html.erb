@@ -3,6 +3,7 @@
     <div class="modal-box" data-action="click->modals#preventClose">
       <%= simple_form_for [@about] do |f| %>
         <%= f.input :about_image, as: :file, label: "IMAGE" %>
+        <%= f.hidden_field :form_name, value: 'about_image' %>
         <%= f.submit "VERSTUUR" %>
       <% end %>
       <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>
