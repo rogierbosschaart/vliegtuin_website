@@ -1,5 +1,5 @@
-<div class="overflow-hidden">
-  <div class="news-banner news-banner-1">
+<section class="news-section">
+    <div class="news-banner news-banner-1">
     <p>
       NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS
     </p>
@@ -9,12 +9,8 @@
       NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS NIEUWS
     </p>
   </div>
-  <section class="news-section">
     <div class="my-container news-container">
-      <div class="floating-header news-header-div">
-        <h2><%= @news.title %></h2>
-        <p>Nieuws</p>
-      </div>
+      <h2 class="floating-header news-header-div"><%= @news.title %></h2>
       <div class="block about-home-image-container">
         <% if @news.news_item_image.presence %>
           <%= cl_image_tag @news.news_item_image.key, class: "about-home-image", alt: "#{@news.title}" %>
@@ -33,4 +29,4 @@
       <%= link_to "Meer nieuws...", news_items_path, class:"page-link" %>
     </div>
   </section>
-</div>
+

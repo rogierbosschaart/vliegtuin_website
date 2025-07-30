@@ -66,7 +66,8 @@ a {
 }
 
 .news-header-div {
-  width: 64%;
+  font-size: 64px;
+  width: 70%;
   position: absolute;
   top: 40%;
   right: 5%;;
@@ -75,10 +76,6 @@ a {
   flex-direction: column;
   align-items: end;
   justify-content: center;
-
-  h2 {
-    font-size: 64px;
-  }
 }
 
 .about-us-header {
@@ -117,24 +114,33 @@ a {
   background-color: black;
   padding: 5px 40px;
   border-radius: 4px;
-  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.3),
-              -1px -1px 8px rgba(192, 195, 175, 0.1),
-              0 0 2px rgba(255, 255, 1, 0.2);
+  box-shadow: 4px 4px 8px rgba(21, 6, 45, 0.5),
+              -1px -1px 8px rgba(192, 195, 175, 0.4),
+              0 0 2px rgba(255, 255, 1, 0.3);
 }
 
 .makers-header {
   transform: rotateZ(-16deg);
   position: absolute;
-  top: 140px;
+  top: 120px;
   left: 40px;
 }
 
 .events-header {
   transform: rotateZ(16deg);
   position: absolute;
-  top: 160px;
+  top: 80px;
   right: 40px;
 }
+
+#events-page-header {
+    top: 160px;
+}
+
+.event-page-header {
+  font-size: 64px;
+}
+
 
 .index-header {
   transform: rotateZ(-16deg);
@@ -167,9 +173,7 @@ a {
 }
 
 
-.event-page-header {
-  font-size: 64px;
-}
+
 
 @media only screen and (max-width: 1130px) {
   .index-header {
@@ -191,6 +195,11 @@ a {
     padding: 5px 10px;
   }
 
+  .about-header {
+    font-size: 80px;
+    top: 35%;
+  }
+
   .index-header {
     top: 0;
     left: 28vw;
@@ -198,9 +207,13 @@ a {
   }
 
   .events-header {
-    top: 80px;
+    top: 20px;
     right: 22vw;
     transform: rotateZ(0deg);
+  }
+
+  #events-page-header {
+    top: 100px;
   }
 
   .makers-header {
@@ -210,26 +223,18 @@ a {
   }
 }
 
-// @media only screen and (max-width: 551px) {
-//   .stamped-header {
-//     font-size: 8vw;
-//     padding: 5px 10px;
-//   }
+@media only screen and (max-width: 580px) {
+  .about-header {
+    font-size: 64px;
+    top: 30%;
+  }
 
-//   .index-header, .makers-header{
-//     left: 22vw;
-//   }
+  .events-header {
+    top: 50px;
+  }
+}
 
-//   .events-header {
-//     right: 18vw;
-//   }
-
-//   #events-page-header {
-//     top: 100px;
-//   }
-// }
-
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 450px) {
   .stamped-header {
     font-size: 10vw;
     padding: 5px 10px;
@@ -240,11 +245,23 @@ a {
     left: 12vw;
   }
 
+  #events-page-header {
+    top: 80px;
+  }
+
+  .about-header {
+    font-size: 48px;
+  }
+
   .makers-header {
+    top: 70px;
     left: 12vw;
   }
 
-  #events-page-header {
-    top: 80px;
+  .page-link {
+    font-size: 14px;
+    padding: 4px 10px;
+    margin: 14px;
+    max-width: 150px;
   }
 }

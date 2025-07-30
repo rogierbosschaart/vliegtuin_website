@@ -5,24 +5,28 @@
   background-image: radial-gradient(closest-side, rgba(240, 255, 142, 0.2), rgba(255,255,255, 0.0));
   align-content: center;
   justify-items: center;
+  // z-index: 1000;
 }
 ///////////////////
 
 // About section //
 .about-section {
-  // background-color: #a0d6a6;
-  background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  padding: 60px 20px 100px 20px;
-  // clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
-}
-
-.relative {
   position: relative;
+  overflow: hidden;
+  // background-color: #a0d6a6;
+  // background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to bottom, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  // padding: 120px 20px 100px 20px;
+  // margin-top: -60px;
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+  padding: 420px 20px 160px 20px;
+  margin-top: -300px;
 }
 
 .about-background-header {
   position: absolute;
-  top: 20%;
+  // top: 20%;
+  top: 45%;
   left: 10%;
   width: 60%;
   height: 100%;
@@ -34,24 +38,24 @@
   }
 }
 
-.parallax-header {
-  animation-name: header-parallax;
-  animation: parallax linear;
-  animation-timeline: view();
-  animation-fill-mode: both;
-  animation-range: entry 0 exit 100%;
-}
+// .parallax-header {
+//   animation-name: header-parallax;
+//   animation: parallax linear;
+//   animation-timeline: view();
+//   animation-fill-mode: both;
+//   animation-range: entry 0 exit 100%;
+// }
 
-@keyframes header-parallax {
-  from {
-    transform: translateX(-10px);
-    transform: translateY(-10px);
-  }
-  to {
-    transform: translateX(0px);
-    transform: translateY(400px);
-  }
-}
+// @keyframes header-parallax {
+//   from {
+//     transform: translateX(-10px);
+//     transform: translateY(-10px);
+//   }
+//   to {
+//     transform: translateX(0px);
+//     transform: translateY(400px);
+//   }
+// }
 
 .about-container {
   display: flex;
@@ -79,13 +83,13 @@
 
 // Events section //
 .events-section {
-  // clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
-  padding: 160px 20px 100px 20px;
-  margin-top: -5%;
-  margin-bottom: -7%;
+  padding: 100px 20px 100px 20px;
+  // margin-top: -5%;
+  // margin-bottom: -7%;
   // background-color: #22492A;
   // background-image: radial-gradient(closest-side, rgba(64, 106, 255, 0.1), rgba(255, 255, 255, 0));
   position: relative;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
@@ -94,8 +98,6 @@
 
 ///////////////////////////
 // News section //
-
-
 .news-banner {
   position: absolute;
   overflow: hidden;
@@ -107,7 +109,7 @@
   opacity: 0.7;
 
   p {
-    font-size: 52px;
+    font-size: 60px;
     font-weight: 600;
     overflow: hidden;
     color: white;
@@ -117,26 +119,31 @@
 }
 
 .news-banner-1 {
-  top: 30%;
+  top: 40%;
   left: -150px;
   width: 160vw;
   transform: rotate(4deg);
 }
 
 .news-banner-2 {
-  top: 65%;
+  top: 75%;
   left: -160px;
   width: 160vw;
   transform: rotate(-2deg);
 }
 
 .news-section {
+  position: relative;
+  overflow-x: hidden;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to bottom, rgba(229, 142, 255, 0.2), rgba(255, 255, 255, 0));
   // clip-path: polygon(0 0, 100% 10%, 100% 92%, 0% 100%);
   // background-color: #a0d6a6;
-  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  padding: 160px 20px 100px 20px;
+  // background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
+  margin-top: -240px;
+  // padding: 160px 20px 100px 20px;
+  padding: 360px 20px 100px 20px;
 }
-
 
 .news-container {
   display: flex;
@@ -168,17 +175,30 @@
   position: relative;
 }
 
-@media only screen and (max-width: 430px) {
-  .about-background-header {
-    top: 30%;
+@media only screen and (max-width: 630px) {
+  .news-header-div {
+    font-size: 58px;
+    width: 70%;
+    top: 15%;
+  }
+}
 
-    h2 {
-      font-size: 52px;
-    }
+@media only screen and (max-width: 450px) {
+  .banner-section {
+    padding: 20vh 0 15vh 0;
   }
 
-  .about-header {
-    font-size: 36px;
+  .vliegtuin-logo {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-background-header {
+    top: 50%;
+
+    h2 {
+      font-size: 100px;
+    }
   }
 
   .events-header {
@@ -186,11 +206,32 @@
     right: 10vw;
   }
 
+  .news-header-div {
+    top: 30%;
+    font-size: 36px;
+    width: 80%;
+  }
+
+  .news-banner p {
+    font-size: 36px;
+  }
+
   .about-section {
-    padding: 40px 10px 20px 10px;
+    padding: 280px 10px 40px 10px;
+    margin-top: -220px;
   }
 
   .events-section {
     padding: 120px 10px 20px 10px;
   }
+
+  .news-section {
+    padding: 200px 10px 20px 20px;
+    margin-top: -100px;
+  }
+
+  .profiles-section {
+    padding: 80px 20px 140px 20px;
+  }
+
 }

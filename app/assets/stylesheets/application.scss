@@ -25,6 +25,10 @@ main {
   flex-grow: 1;
 }
 
+.relative {
+  position: relative;
+}
+
 .my-container {
   max-width: 900px;
   margin: 0 auto;
@@ -102,4 +106,10 @@ main {
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0 cover 40%;
+}
+
+@media only screen and (max-width: 430px) {
+  .my-container {
+    padding: 0;
+  }
 }
