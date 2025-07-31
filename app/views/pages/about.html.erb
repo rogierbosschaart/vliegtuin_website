@@ -1,8 +1,10 @@
 <div class="appear">
-  <div class="about-page-first-background-header">
-    <h2><%= @about.slogan %></h2>
-  </div>
-  <section class="about-sections about-banner-section">
+  <section class="first-slogan-section">
+    <div class="background-header-clipper">
+      <div class="about-page-first-background-header">
+        <h2><%= @about.slogan %></h2>
+      </div>
+    </div>
     <div class="my-container about-banner-container">
       <h2 class="floating-header about-us-header"><%= @about.slogan %></h2>
       <div class="block about-image-container" id="about-second-image-container">
@@ -23,43 +25,53 @@
     </div>
   </section>
 
-  <section class="about-sections about-info-section">
-    <div class="block my-container">
-      <p class="large-p center"><%= @about.first_info %></p>
-    </div>
-  </section>
+  <div class="first-angle-background">
+    <section class="about-info-section">
+      <div class="block my-container">
+        <p class="large-p center"><%= @about.first_info %></p>
+      </div>
+    </section>
+  </div>
 
-  <section class="about-sections  second-slogan-section">
-    <div class="about-page-second-background-header">
-      <h2 class="center"><%= @about.second_slogan %></h2>
+  <section class="second-slogan-section">
+    <div class="second-background-clipper">
+      <div class="about-page-second-background-header">
+        <h2 class="center"><%= @about.second_slogan %></h2>
+      </div>
     </div>
-    <h2 class="floating-header about-second-slogan"><%= @about.second_slogan %></h2>
-    <div class="block about-second-image-container">
-      <% if @about.about_second_image.presence %>
-        <%= cl_image_tag @about.about_second_image.key, class: "about-image", alt: "#{@about.second_slogan}" %>
-      <% else %>
-        <div class="about-image-placeholder">
-          <h2>Over ons Image</h2>
-          <p>Upload een foto</p>
-        </div>
-      <% end %>
-      <% if user_signed_in? && current_user.admin %>
-        <%= link_to edit_about_second_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
-          <i class="fa-solid fa-pen" id="edit-pen"></i>
+    <div class="my-container">
+      <h2 class="floating-header about-second-slogan"><%= @about.second_slogan %></h2>
+      <div class="block about-second-image-container">
+        <% if @about.about_second_image.presence %>
+          <%= cl_image_tag @about.about_second_image.key, class: "about-image", alt: "#{@about.second_slogan}" %>
+        <% else %>
+          <div class="about-image-placeholder">
+            <h2>Over ons Image</h2>
+            <p>Upload een foto</p>
+          </div>
         <% end %>
-      <% end %>
+        <% if user_signed_in? && current_user.admin %>
+          <%= link_to edit_about_second_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+            <i class="fa-solid fa-pen" id="edit-pen"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </section>
 
-  <section class="about-sections about-info-section">
-    <div class="block my-container">
-      <p class="large-p center"><%= @about.second_info %></p>
-    </div>
-  </section>
+  <div class="second-angle-background">
+    <section class="about-sections about-info-section">
+      <div class="block my-container">
+        <p class="large-p center"><%= @about.second_info %></p>
+      </div>
+    </section>
+  </div>
 
   <section class="about-sections  third-slogan-section">
-    <div class="about-page-third-background-header">
-      <h2><%= @about.third_slogan %></h2>
+    <div class="third-background-clipper">
+      <div class="about-page-third-background-header">
+        <h2><%= @about.third_slogan %></h2>
+      </div>
     </div>
     <h2 class="floating-header about-third-slogan"><%= @about.third_slogan %></h2>
     <div class="block about-third-image-container">

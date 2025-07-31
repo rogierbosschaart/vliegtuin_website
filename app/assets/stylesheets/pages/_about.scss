@@ -1,22 +1,33 @@
-.about-page-first-background-header {
+.background-header-clipper {
   position: absolute;
   top: 40%;
   left: 12%;
-  width: 60%;
+  right: 0;
+  overflow: hidden;
   opacity: 0.6;
+}
+
+.about-page-first-background-header {
+  width: 100%;
 
   h2 {
     font-size: 160px;
     color: white;
+    width: 60%;
   }
 }
 
-.about-page-second-background-header {
+.second-background-clipper {
   position: absolute;
   top: 40%;
-  left: 2%;
-  width: 96%;
+  left: 0;
+  right: 0;
   opacity: 0.6;
+  overflow: hidden;
+}
+
+.about-page-second-background-header {
+  width: 100%;
 
   h2 {
     font-size: 100px;
@@ -24,23 +35,21 @@
   }
 }
 
-.about-page-third-background-header {
+.third-background-clipper {
   position: absolute;
   top: 40%;
   right: 15%;
   width: 70%;
   opacity: 0.6;
+  overflow: hidden;
+}
 
+.about-page-third-background-header {
   h2 {
     font-size: 100px;
     text-align: right;
     color: white;
   }
-}
-
-.about-banner-section {
-  background-image: linear(closest-side, rgba(200, 142, 255, 0.4), rgba(255, 255, 255, 0));
-  padding: 20px 10%;
 }
 
 .about-banner-container {
@@ -64,7 +73,7 @@
 @keyframes image-appear {
    0% {
     opacity: 0.5;
-    transform: scale(0.98);
+    transform: scale(0.96);
   }
 
   100% {
@@ -74,9 +83,10 @@
 }
 
 .about-image-container {
-  height: 70vh;
+  max-width: 70%;
   aspect-ratio: 5 / 4;
   position: relative;
+  z-index: 1;
 }
 
 .about-image {
@@ -88,15 +98,35 @@
 }
 
 .about-info-section {
+  max-width: 800px;
   margin: 100px auto;
-  padding: 0 22%;
+}
+
+.first-angle-background {
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to bottom, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  padding: 300px 0 0 0;
+  margin-top: -200px;
+}
+
+.second-angle-background {
+  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to bottom, rgba(229, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  padding: 240px 0 0 0;
+  margin-top: -320px;
+}
+
+.first-slogan-section {
+  position: relative;
 }
 
 .second-slogan-section {
-  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  padding: 20px 10%;
-  margin: 100px auto;
   position: relative;
+  // background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
+  // padding: 80px 0;
+  margin: 180px auto;
+  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,15 +134,16 @@
 }
 
 .about-second-image-container {
-  height: 70vh;
+  max-width: 70%;
   aspect-ratio: 3 / 2;
   position: relative;
+  z-index: 1;
 }
 
 .third-slogan-section {
-  background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
+  // background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
   padding: 20px 10% 200px 10%;
-  margin: 100px auto 0 auto;
+  margin: 180px auto 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;

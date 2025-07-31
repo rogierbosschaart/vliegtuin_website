@@ -1,7 +1,25 @@
-<div class="footer">
-  <%#= image_tag "Vliegtuin_Footer_Logo.png", alt: "vliegtuin-logo", class: "vliegtuin-footer-logo" %>
-  <div class="footer-info">
-    <h3>Contact</h3>
-    <p>devliegtuin@gmail.com</p>
+<div class="block footer">
+
+  <%= image_tag "Vliegtuin_2.png", alt: "vliegtuin-logo", class: "vliegtuin-footer-logo" %>
+
+  <div class="footer-grid">
+    <div class="footer-info">
+      <h3>Adres</h3>
+      <p>Distelweg 83</p>
+      <p>1093HE, Amsterdam</p>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <div class="footer-socials">
+        <%= link_to 'https://www.instagram.com' do %>
+          <i class="fab fa-instagram"></i>
+        <% end %>
+        <%= mail_to 'devliegtuin@gmail.com' do %>
+          <i class="fa-regular fa-envelope"></i>
+        <% end %>
+      </div>
+    </div>
   </div>
+
 </div>

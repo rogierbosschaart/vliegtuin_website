@@ -5,57 +5,37 @@
   background-image: radial-gradient(closest-side, rgba(240, 255, 142, 0.2), rgba(255,255,255, 0.0));
   align-content: center;
   justify-items: center;
-  // z-index: 1000;
 }
 ///////////////////
 
 // About section //
 .about-section {
   position: relative;
-  overflow: hidden;
-  // background-color: #a0d6a6;
-  // background-image: radial-gradient(closest-side, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  // overflow: hidden;
   background-image: linear-gradient(to bottom, rgba(200, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  // padding: 120px 20px 100px 20px;
-  // margin-top: -60px;
   clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
   padding: 420px 20px 160px 20px;
   margin-top: -300px;
 }
 
-.about-background-header {
+.home-about-clipper {
   position: absolute;
-  // top: 20%;
   top: 45%;
   left: 10%;
-  width: 60%;
-  height: 100%;
+  right: 0;
+  overflow: hidden;
   opacity: 0.6;
+}
 
+.about-background-header {
+  width: 100%;
+  
   h2 {
     font-size: 200px;
     color: white;
+    width: 60%;
   }
 }
-
-// .parallax-header {
-//   animation-name: header-parallax;
-//   animation: parallax linear;
-//   animation-timeline: view();
-//   animation-fill-mode: both;
-//   animation-range: entry 0 exit 100%;
-// }
-
-// @keyframes header-parallax {
-//   from {
-//     transform: translateX(-10px);
-//     transform: translateY(-10px);
-//   }
-//   to {
-//     transform: translateX(0px);
-//     transform: translateY(400px);
-//   }
-// }
 
 .about-container {
   display: flex;
@@ -84,10 +64,6 @@
 // Events section //
 .events-section {
   padding: 100px 20px 100px 20px;
-  // margin-top: -5%;
-  // margin-bottom: -7%;
-  // background-color: #22492A;
-  // background-image: radial-gradient(closest-side, rgba(64, 106, 255, 0.1), rgba(255, 255, 255, 0));
   position: relative;
   z-index: 2;
 
@@ -98,20 +74,35 @@
 
 ///////////////////////////
 // News section //
+.news-section {
+  position: relative;
+  // overflow-x: hidden;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to bottom, rgba(229, 142, 255, 0.2), rgba(255, 255, 255, 0));
+  margin-top: -240px;
+  padding: 360px 20px 100px 20px;
+}
+
+.news-banner-clipper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.6;
+}
+
 .news-banner {
   position: absolute;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  // height: 30px;
-  z-index: -1;
-  // background-color: rgba(0, 0, 0, 1.0);
-  opacity: 0.7;
+
 
   p {
     font-size: 60px;
     font-weight: 600;
-    overflow: hidden;
     color: white;
     margin: 0;
     white-space: nowrap;
@@ -126,23 +117,10 @@
 }
 
 .news-banner-2 {
-  top: 75%;
+  top: 70%;
   left: -160px;
   width: 160vw;
   transform: rotate(-2deg);
-}
-
-.news-section {
-  position: relative;
-  overflow-x: hidden;
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
-  background-image: linear-gradient(to bottom, rgba(229, 142, 255, 0.2), rgba(255, 255, 255, 0));
-  // clip-path: polygon(0 0, 100% 10%, 100% 92%, 0% 100%);
-  // background-color: #a0d6a6;
-  // background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  margin-top: -240px;
-  // padding: 160px 20px 100px 20px;
-  padding: 360px 20px 100px 20px;
 }
 
 .news-container {
