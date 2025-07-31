@@ -1,4 +1,4 @@
-<div class="overflow-hidden">
+<div>
   <div class="my-container">
     <% if @selected_news.presence %>
       <div class="news-grid">
@@ -15,21 +15,26 @@
       </div>
       <hr>
     <% end %>
+  </div>
 
-    <div class="news-cards">
-      <% @news_items.each do |item| %>
-        <%= link_to news_item_path(item) do %>
-          <div class="news-card">
-            <% if item.news_item_image.presence %>
-              <%= cl_image_tag item.news_item_image.key, class: "news-card-image", alt: "#{item.title}" %>
+    <section class="news-items-section">
+      <div class="my-container">
+        <div class="news-cards">
+          <% @news_items.each do |item| %>
+            <%= link_to news_item_path(item) do %>
+              <div class="news-card">
+                <% if item.news_item_image.presence %>
+                  <%= cl_image_tag item.news_item_image.key, class: "news-card-image", alt: "#{item.title}" %>
+                <% end %>
+                <div class="news-card-info">
+                  <h3><%= item.title %></h3>
+                  <p><%= item.info %></p>
+                </div>
+              </div>
             <% end %>
-            <div class="news-card-info">
-              <h3><%= item.title %></h3>
-              <p><%= item.info %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
