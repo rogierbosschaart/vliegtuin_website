@@ -1,3 +1,7 @@
+.about-sections {
+  padding: 0 20px;
+}
+
 .background-header-clipper {
   position: absolute;
   top: 40%;
@@ -19,7 +23,7 @@
 
 .second-background-clipper {
   position: absolute;
-  top: 40%;
+  top: 20%;
   left: 0;
   right: 0;
   opacity: 0.6;
@@ -37,8 +41,8 @@
 
 .third-background-clipper {
   position: absolute;
-  top: 40%;
-  right: 15%;
+  top: 20%;
+  right: 5%;
   width: 70%;
   opacity: 0.6;
   overflow: hidden;
@@ -100,6 +104,7 @@
 .about-info-section {
   max-width: 800px;
   margin: 100px auto;
+  background: linear-gradient(0deg,#CAEDE6 70%, rgba(255, 255, 255, 0) 100%);
 }
 
 .first-angle-background {
@@ -118,12 +123,11 @@
 
 .first-slogan-section {
   position: relative;
+  margin-top: 60px;
 }
 
 .second-slogan-section {
   position: relative;
-  // background-image: radial-gradient(closest-side, rgba(217, 142, 255, 0.3), rgba(255, 255, 255, 0));
-  // padding: 80px 0;
   margin: 180px auto;
   position: relative;
   width: 100%;
@@ -138,6 +142,7 @@
   aspect-ratio: 3 / 2;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .third-slogan-section {
@@ -152,7 +157,63 @@
 }
 
 .about-third-image-container {
-  height: 70vh;
+  width: 70%;
   aspect-ratio: 5 / 4;
   position: relative;
+}
+
+@media only screen and (max-width: 720px) {
+  .background-header-clipper {
+    top: 10%;
+  }
+
+  .about-page-first-background-header {
+    h2 {
+      font-size: 120px;
+    }
+  }
+
+  .second-background-clipper {
+    top: -50px;
+  }
+
+  .third-background-clipper {
+    width: 100%;
+    right: 2%;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .about-sections {
+    padding: 0 10px;
+  }
+
+  .about-info-section {
+    margin: 100px auto 20px auto;
+  }
+
+  .about-page-first-background-header {
+    h2 {
+      font-size: 100px;
+    }
+  }
+
+  .about-other-background-headers {
+    h2 {
+      font-size: 60px;
+    }
+  }
+
+  .background-header-clipper {
+    top: 0;
+  }
+
+  .first-angle-background {
+    padding: 240px 0 0 0;
+  }
+
+  .third-slogan-section {
+    margin: 100px auto 0 auto;
+  }
 }

@@ -1,5 +1,5 @@
 <div class="appear">
-  <section class="first-slogan-section">
+  <section class="about-sections first-slogan-section">
     <div class="background-header-clipper">
       <div class="about-page-first-background-header">
         <h2><%= @about.slogan %></h2>
@@ -26,21 +26,21 @@
   </section>
 
   <div class="first-angle-background">
-    <section class="about-info-section">
+    <section class="about-sections about-info-section">
       <div class="block my-container">
         <p class="large-p center"><%= @about.first_info %></p>
       </div>
     </section>
   </div>
 
-  <section class="second-slogan-section">
+  <section class="about-sections second-slogan-section">
     <div class="second-background-clipper">
-      <div class="about-page-second-background-header">
+      <div class="about-page-second-background-header about-other-background-headers">
         <h2 class="center"><%= @about.second_slogan %></h2>
       </div>
     </div>
     <div class="my-container">
-      <h2 class="floating-header about-second-slogan"><%= @about.second_slogan %></h2>
+      <h2 class="floating-header about-second-slogan about-other-slogans"><%= @about.second_slogan %></h2>
       <div class="block about-second-image-container">
         <% if @about.about_second_image.presence %>
           <%= cl_image_tag @about.about_second_image.key, class: "about-image", alt: "#{@about.second_slogan}" %>
@@ -60,7 +60,7 @@
   </section>
 
   <div class="second-angle-background">
-    <section class="about-sections about-info-section">
+    <section class="about-sections about-sections about-info-section">
       <div class="block my-container">
         <p class="large-p center"><%= @about.second_info %></p>
       </div>
@@ -69,11 +69,11 @@
 
   <section class="about-sections  third-slogan-section">
     <div class="third-background-clipper">
-      <div class="about-page-third-background-header">
+      <div class="about-page-third-background-header about-other-background-headers">
         <h2><%= @about.third_slogan %></h2>
       </div>
     </div>
-    <h2 class="floating-header about-third-slogan"><%= @about.third_slogan %></h2>
+    <h2 class="floating-header about-third-slogan about-other-slogans"><%= @about.third_slogan %></h2>
     <div class="block about-third-image-container">
       <% if @about.about_third_image.presence %>
         <%= cl_image_tag @about.about_third_image.key, class: "about-image", alt: "#{@about.third_slogan}" %>

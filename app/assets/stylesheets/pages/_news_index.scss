@@ -13,6 +13,28 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+  animation-name: fadeInGrid;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeInGrid {
+   0% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+}
+
+.about-image-container {
+  max-width: 70%;
+  aspect-ratio: 5 / 4;
+  position: relative;
+  z-index: 1;
 }
 
 .selected-news-image {
