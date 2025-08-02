@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 1.0);
+  background-color: rgba(21, 6, 45, 0.95);
   flex-shrink: 0;
   padding: 0 10% 40px 10%;
   display: flex;
@@ -11,10 +11,10 @@
 }
 
 .vliegtuin-footer-logo {
-  height: 300px;
+  width: 90%;
   margin: 20px auto 0 auto;
-  -webkit-filter: drop-shadow(4px 4px 4px rgba(21, 6, 45, 0.35));
-  filter: drop-shadow(4px 4px 4px rgba(21, 6, 45, 0.35));
+  -webkit-filter: drop-shadow(2px 2px 8px rgba(147, 188, 180, 0.4));
+  filter: drop-shadow(2px 2px 8px rgba(147, 188, 180, 0.4));
 }
 
 .footer-grid {
@@ -30,7 +30,12 @@
   // justify-content: center;
   padding: 0 20px;
 
+  h3 {
+    color: #caede6;
+  }
+
   p {
+    color: #caede6;
     font-size: 14px;
     margin: 0;
   }
@@ -40,8 +45,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
   padding: 0 20px;
+
+  h3 {
+    color: #caede6;
+  }
 }
 
 .footer-socials {
@@ -51,14 +59,40 @@
   align-items: center;
 
   i {
+    color: #caede6;
     font-size: 24px;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #caede6;
     border-radius: 50%;
     margin: 10px 20px 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .footer {
+    padding: 0 5% 30px 5%;
+  }
+
+  .vliegtuin-footer-logo {
+    width: 100%;
+  }
+
+  .footer-info {
+    padding: 0 10px;
+    align-items: start;
+  }
+
+  .footer-socials {
+    i {
+      font-size: 18px;
+      width: 35px;
+      height: 35px;
+      margin: 10px 10px 20px 10px;
+    }
+
   }
 }

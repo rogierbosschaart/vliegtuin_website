@@ -6,11 +6,14 @@ export default class extends Controller {
     console.log("Modals controller connected")
   }
 
-  close() {
-    this.element.remove()
-  }
+  close(event) {
+  console.log("Close method was called!")
+  event.preventDefault()
+  this.element.closest("turbo-frame").innerHTML = ""
 
-  preventClose(event) {
-    event.stopPropagation()
-  }
+}
+
+  // preventClose(event) {
+  //   event.stopPropagation()
+  // }
 }
