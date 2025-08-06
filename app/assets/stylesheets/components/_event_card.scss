@@ -8,6 +8,7 @@
   position: relative;
   transition: 0.2s;
   display: flex;
+  transition: 0.2s ease-in-out;
 }
 
 .event-card:hover {

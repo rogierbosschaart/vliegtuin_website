@@ -120,7 +120,7 @@
       <div class="my-section">
         <h3 class="dashboard-header">Selecteer een nieuwsbericht voor de HomePage</h3>
         <% @news.each do |news| %>
-          <div class="user-item">
+          <div class="user-news-item">
             <p><%= news.title %></p>
             <%= simple_form_for news,
                                     url: toggle_selected_news_item_path(news),

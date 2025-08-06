@@ -250,6 +250,16 @@ a {
   }
 }
 
+@media only screen and (max-width: 500px) {
+  p {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 450px) {
   h3 {
     font-size: 18px;
@@ -257,6 +267,10 @@ a {
   }
 
   p {
+    font-size: 14px;
+  }
+
+  label {
     font-size: 14px;
   }
 
