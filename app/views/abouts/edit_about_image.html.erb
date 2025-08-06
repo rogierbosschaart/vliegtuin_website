@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
-  <div class="modal-overlay" data-action="click->modals#close">
+  <div class="modal-overlay" data-controller="modals" data-action="click->modals#close">
     <div class="modal-box" data-action="click->modals#preventClose">
       <%= simple_form_for [@about] do |f| %>
         <%= f.input :about_image, as: :file, label: "IMAGE" %>

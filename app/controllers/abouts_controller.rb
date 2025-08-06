@@ -37,13 +37,14 @@ class AboutsController < ApplicationController
 
   def about_params
     params.require(:about).permit(
-                    :info,
+                    :first_info,
+                    :second_info,
                     :slogan,
-                    :about_image,
-                    :about_second_image,
-                    :about_home_image,
                     :second_slogan,
                     :third_slogan,
+                    :about_home_image,
+                    :about_image,
+                    :about_second_image,
                     :about_third_image)
   end
 

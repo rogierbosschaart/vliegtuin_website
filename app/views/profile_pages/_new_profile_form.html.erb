@@ -1,0 +1,6 @@
+<%= simple_form_for [@profile_page], html: { id: "profile_page_form", data: { turbo_frame: "_top" } } do |f| %>
+  <%= f.input :profile_image, as: :file, label: "PROFIELFOTO" %>
+  <%= f.input :naam, label: "NAAM" %>
+  <%= f.input :beroep, label: "BEROEP" %>
+  <%= f.submit "VERSTUUR" %>
+<% end %>

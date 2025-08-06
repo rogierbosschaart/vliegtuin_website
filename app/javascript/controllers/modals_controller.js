@@ -13,7 +13,7 @@ export default class extends Controller {
 
 }
 
-  // preventClose(event) {
-  //   event.stopPropagation()
-  // }
+  preventClose(event) {
+    event.stopPropagation()
+  }
 }

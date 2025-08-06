@@ -3,7 +3,7 @@
     <% if @news_item.news_item_image.presence %>
       <%= cl_image_tag @news_item.news_item_image.key, class: "news-show-image", alt: "#{@news_item.title}" %>
     <% else %>
-      <p class="news-show-image">Upload-image</p>
+      <p class="news-show-image">Upload een foto</p>
     <% end %>
     <div class="news-title">
       <h2><%= @news_item.title %></h2>

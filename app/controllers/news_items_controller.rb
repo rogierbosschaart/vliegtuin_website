@@ -24,10 +24,20 @@ class NewsItemsController < ApplicationController
   def create
     @news_item = NewsItem.new(news_item_params)
     @news_item.user = current_user
-    if @news_item.save
-      redirect_to @news_item, notice: 'News item was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @news_item.save
+        format.html { redirect_to @news_item, notice: 'News item was successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            'news_item_form',
+            partial: 'news_items/new_news_item_form',
+            locals: { news_item: @news_item }
+          ), status: :unprocessable_entity
+        end
+      end
     end
   end
 

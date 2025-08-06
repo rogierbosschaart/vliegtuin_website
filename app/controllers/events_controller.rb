@@ -14,10 +14,20 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            'event_form',
+            partial: 'events/new_event_form',
+            locals: { event: @event }
+          ), status: :unprocessable_entity
+        end
+      end
     end
   end
 

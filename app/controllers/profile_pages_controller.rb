@@ -20,10 +20,20 @@ class ProfilePagesController < ApplicationController
     @profile_page = ProfilePage.new(profile_page_params)
     @profile_page.user = current_user
     @profile_page.active = false
-    if @profile_page.save
-      redirect_to profile_page_path(@profile_page), notice: 'Profile page was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @profile_page.save
+        format.html { redirect_to @profile_page, notice: 'Profile was successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            'profile_page_form',
+            partial: 'profile_pages/new_profile_form',
+            locals: { profile_page: @profile_page }
+          ), status: :unprocessable_entity
+        end
+      end
     end
   end
 
@@ -43,7 +53,6 @@ class ProfilePagesController < ApplicationController
   end
 
   def destroy_image
-    # @profile_page = ProfilePage.friendly.find(params[:profile_page_id])
     @image = @profile_page.images.find(params[:image_id])
     if @image.purge_later
       redirect_to @profile_page, notice: "Image was successfully deleted."
@@ -58,25 +67,21 @@ class ProfilePagesController < ApplicationController
   end
 
   def update
-    # Determine which parameters to use
     params_to_update = if params[:profile_page]
                          profile_page_params
                        else
                          params.permit(:active)
                        end
 
-    # Separate out any images to attach later
     images_to_attach = params_to_update.delete(:images) if params_to_update.is_a?(ActionController::Parameters)
-
     if @profile_page.update(params_to_update)
       @profile_page.images.attach(images_to_attach) if images_to_attach
 
       respond_to do |format|
         format.html { redirect_to @profile_page, notice: 'Profile page was successfully updated.' }
-        format.turbo_stream # This will render update.turbo_stream.erb and reload the page
+        format.turbo_stream
       end
     else
-      # This block handles validation errors from your forms
       if params[:profile_page].key?(:banner_image)
         render :edit_banner, status: :unprocessable_entity
       elsif params[:profile_page].key?(:info)

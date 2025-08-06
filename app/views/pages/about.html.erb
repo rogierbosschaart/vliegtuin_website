@@ -73,21 +73,23 @@
         <h2><%= @about.third_slogan %></h2>
       </div>
     </div>
-    <h2 class="floating-header about-third-slogan about-other-slogans"><%= @about.third_slogan %></h2>
-    <div class="block about-third-image-container">
-      <% if @about.about_third_image.presence %>
-        <%= cl_image_tag @about.about_third_image.key, class: "about-image", alt: "#{@about.third_slogan}" %>
-      <% else %>
-        <div class="about-image-placeholder">
-          <h2>Over ons Image</h2>
-          <p>Upload een foto</p>
-        </div>
-      <% end %>
-      <% if user_signed_in? && current_user.admin %>
-        <%= link_to edit_about_third_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
-          <i class="fa-solid fa-pen" id="edit-pen"></i>
+    <div class="my-container">
+      <h2 class="floating-header about-third-slogan about-other-slogans"><%= @about.third_slogan %></h2>
+      <div class="block about-third-image-container">
+        <% if @about.about_third_image.presence %>
+          <%= cl_image_tag @about.about_third_image.key, class: "about-image", alt: "#{@about.third_slogan}" %>
+        <% else %>
+          <div class="about-image-placeholder">
+            <h2>Over ons Image</h2>
+            <p>Upload een foto</p>
+          </div>
         <% end %>
-      <% end %>
+        <% if user_signed_in? && current_user.admin %>
+          <%= link_to edit_about_third_image_about_path(@about), data: { turbo_frame: "modal" }, class: "image-edit" do %>
+            <i class="fa-solid fa-pen" id="edit-pen"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </section>
 </div>
