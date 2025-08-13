@@ -113,57 +113,86 @@
     </div>
   </div>
 
+  <%# ADMIN SECTION %>
   <% if current_user.admin? %>
     <div class="my-dashboard-container">
       <h2 class="center">Admin</h2>
       <hr>
       <div class="my-section">
-        <h3 class="dashboard-header">Selecteer een nieuwsbericht voor de HomePage</h3>
-        <% @news.each do |news| %>
-          <div class="user-news-item">
-            <p><%= news.title %></p>
-            <%= simple_form_for news,
-                                    url: toggle_selected_news_item_path(news),
-                                    method: :patch,
-                                    namespace: "news_toggle_#{news.id}",
-                                    html: { data: { controller: "toggle-submit" } } do |f| %>
-                  <div>
-                    <%= f.check_box :selected, data: { action: "change->toggle-submit#submit" } %>
-                    <%= f.label :selecteer %>
-                  </div>
-                <% end %>
+        <div data-controller="dropdown-profile-update">
+          <div class="edit-profile" data-action="click->dropdown-profile-update#toggle">
+            <h3 class="dashboard-header">Selecteer een nieuwsbericht voor de HomePage</h3>
+            <i class="fa-solid fa-chevron-down"></i>
           </div>
-        <% end %>
-      </div>
-      <hr>
-      <div class="my-section">
-        <h3 class="dashboard-header">Bewerk Over Ons</h3>
-        <div class="info-box">
-          <%= render 'abouts/edit' %>
+          <div class="hidden" data-dropdown-profile-update-target="menu">
+            <% @news.each do |news| %>
+              <div class="user-news-item">
+                <p><%= news.title %></p>
+                <%= simple_form_for news,
+                                        url: toggle_selected_news_item_path(news),
+                                        method: :patch,
+                                        namespace: "news_toggle_#{news.id}",
+                                        html: { data: { controller: "toggle-submit" } } do |f| %>
+                      <div>
+                        <%= f.check_box :selected, data: { action: "change->toggle-submit#submit" } %>
+                        <%= f.label :selecteer %>
+                      </div>
+                    <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
       <hr>
       <div class="my-section">
-        <h3 class="dashboard-header">Gebruikersbeheer</h3>
-        <div class="user-list">
-          <% @users.each do |user| %>
-            <div class="user-item">
-              <p><%= user.naam %></p>
-              <p class="email"><%= user.email %></p>
-              <% unless user.super_admin? || user == current_user %>
-                <%= simple_form_for user,
-                                    url: toggle_admin_user_path(user),
-                                    method: :patch,
-                                    namespace: "admin_toggle_#{user.id}",
-                                    html: { data: { controller: "toggle-submit" } } do |f| %>
-                  <div>
-                    <%= f.check_box :admin, data: { action: "change->toggle-submit#submit" } %>
-                    <%= f.label :admin %>
-                  </div>
-                <% end %>
+        <div data-controller="dropdown-profile-update">
+          <div class="edit-profile" data-action="click->dropdown-profile-update#toggle">
+            <h3 class="dashboard-header">Bewerk Over Ons</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="hidden" data-dropdown-profile-update-target="menu">
+            <div class="info-box">
+              <%= render 'abouts/edit' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%# SUPER ADMIN SECTION %>
+  <% if current_user.super_admin? %>
+    <div class="my-dashboard-container">
+      <h2 class="center">Super admin</h2>
+      <hr>
+      <div class="my-section">
+        <div data-controller="dropdown-profile-update">
+          <div class="edit-profile" data-action="click->dropdown-profile-update#toggle">
+            <h3 class="dashboard-header">Gebruikersbeheer</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="hidden" data-dropdown-profile-update-target="menu">
+            <div class="user-list">
+              <% @users.each do |user| %>
+                <div class="user-item">
+                  <p><%= user.naam %></p>
+                  <p class="email"><%= user.email %></p>
+                  <% unless user.super_admin? || user == current_user %>
+                    <%= simple_form_for user,
+                                        url: toggle_admin_user_path(user),
+                                        method: :patch,
+                                        namespace: "admin_toggle_#{user.id}",
+                                        html: { data: { controller: "toggle-submit" } } do |f| %>
+                      <div>
+                        <%= f.check_box :admin, data: { action: "change->toggle-submit#submit" } %>
+                        <%= f.label :admin %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
               <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
       <hr>
@@ -179,4 +208,3 @@
       </div>
     </div>
   <% end %>
-</section>

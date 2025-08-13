@@ -1,5 +1,15 @@
 # User.destroy_all
 
+User.create!(
+  email: 'superadmin@test.com',
+  password: '123123',
+  password_confirmation: "123123",
+  naam: "Rogier Bosschaart",
+  admin: true,
+  super_admin: true,
+  invitation_accepted_at: Time.current
+)
+
 # User.create!(
 #   email: 'admin@test.com',
 #   password: '123123',
@@ -72,14 +82,14 @@
 #   invitation_accepted_at: Time.current
 # )
 
-User.create!(
-  email: 'user7@test.com',
-  password: '123123',
-  password_confirmation: "123123",
-  naam: "Arend Sr",
-  admin: false,
-  invitation_accepted_at: Time.current
-)
+# User.create!(
+#   email: 'user7@test.com',
+#   password: '123123',
+#   password_confirmation: "123123",
+#   naam: "Arend Sr",
+#   admin: false,
+#   invitation_accepted_at: Time.current
+# )
 
 # User.create!(
 #   email: 'user8@test.com',
