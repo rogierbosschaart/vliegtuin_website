@@ -1,5 +1,5 @@
 class ProfilePagesController < ApplicationController
-  before_action :find_profile_page, only: [:show, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_image, :update, :destroy, :destroy_image, :add_images, :edit_images]
+  before_action :find_profile_page, only: [:show, :edit_card, :edit_banner, :edit_contact_info, :edit_bio, :edit_profile_image, :update, :destroy, :destroy_image, :add_images, :edit_images]
 
   def index
     @profile_pages = ProfilePage.where(active: true).order(updated_at: :desc)
@@ -37,6 +37,9 @@ class ProfilePagesController < ApplicationController
     end
   end
 
+  def edit_card
+  end
+  
   def edit_banner
   end
 

@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "modal", data: { controller: "modals" } do %>
+  <div class="modal-overlay" data-controller="modals" data-action="click->modals#close">
+    <div class="modal-box" data-action="click->modals#preventClose">
+      <h2>Nieuw Profiel</h2>
+      <%= render 'profile_pages/new_profile_form' %>
+    <%= link_to "Cancel", "#", data: { action: "click->modals#close" }, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>

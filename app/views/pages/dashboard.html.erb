@@ -16,6 +16,7 @@
             </div>
           </div>
         <% end %>
+        <%= link_to "Edit Profiel", edit_card_profile_page_path(current_user.profile_page), data: { turbo_frame: "modal" }, class: "dashboard-button" %>
         <%= link_to "Verwijder Profiel",
                     profile_page_path(current_user.profile_page),
                     data: { turbo_method: :delete, turbo_confirm: "Weet je het zeker? Deze actie kan niet ongedaan worden gemaakt." },

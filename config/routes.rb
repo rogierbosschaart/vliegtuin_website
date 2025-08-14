@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :profile_pages, only: [:index, :show, :new, :create, :update, :destroy] do
     member do
+      get :edit_card
       get :edit_banner
       get :edit_contact_info
       get :edit_bio
