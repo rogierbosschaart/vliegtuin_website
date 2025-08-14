@@ -1,11 +1,23 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  # config.action_mailer.default_url_options = { host: "https://devliegtuin-8dc3b2b72c33.herokuapp.com/" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
+
+  config.action_mailer.default_url_options = { host: 'devliegtuin-8dc3b2b72c33.herokuapp.com/', protocol: 'https' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'devliegtuin-8dc3b2b72c33.herokuapp.com/',
+    user_name:            'apikey', # This is the literal string 'apikey'
+    password:             ENV['SENDGRID_API_KEY'],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
