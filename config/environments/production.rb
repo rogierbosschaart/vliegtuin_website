@@ -7,14 +7,14 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
-  config.action_mailer.default_url_options = { host: 'devliegtuin-8dc3b2b72c33.herokuapp.com/', protocol: 'https' }
+   config.action_mailer.default_url_options = { host: 'www.vliegtuin.nl', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
+    address:              ENV['MAILGUN_SMTP_SERVER'],
     port:                 587,
-    domain:               'devliegtuin-8dc3b2b72c33.herokuapp.com/',
-    user_name:            'apikey', # This is the literal string 'apikey'
-    password:             ENV['SENDGRID_API_KEY'],
+    domain:               ENV['MAILGUN_DOMAIN'],
+    user_name:            ENV['MAILGUN_SMTP_LOGIN'],
+    password:             ENV['MAILGUN_SMTP_PASSWORD'],
     authentication:       :plain,
     enable_starttls_auto: true
   }
